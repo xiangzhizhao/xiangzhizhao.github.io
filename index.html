@@ -1,16 +1,266 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Xiangzhi Zhao</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xiangzhi Zhao</title>
+  <style>
+    :root {
+      --text: #111827;
+      --muted: #4b5563;
+      --line: #e5e7eb;
+      --link: #1a73e8;
+      --bg: #ffffff;
+      --panel: #fafafa;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topnav {
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topnav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 34px;
+      align-items: center;
+      padding: 14px 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+    }
+
+    .brand {
+      font-weight: 700;
+      color: #1f2937;
+      margin-right: auto;
+      letter-spacing: 0.2px;
+    }
+
+    .navlink {
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+
+    .title {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 700;
+      margin: 10px 0 36px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 38px;
+      align-items: start;
+      margin-bottom: 42px;
+    }
+
+    .photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(180deg, #dbeafe, #f3f4f6);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-placeholder {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #6b7280;
+      padding: 20px;
+    }
+
+    .intro {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.08rem;
+      color: #374151;
+    }
+
+    .intro p {
+      margin: 0 0 18px;
+    }
+
+    .section {
+      margin-top: 28px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .section h2 {
+      font-size: 1.45rem;
+      margin: 0 0 14px;
+      color: #111827;
+    }
+
+    .papers, .teaching, .education {
+      display: grid;
+      gap: 14px;
+    }
+
+    .item {
+      padding: 14px 16px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .item:first-child { border-top: 0; }
+
+    .paper-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.02rem;
+      line-height: 1.45;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .list {
+      margin: 10px 0 0 22px;
+      padding: 0;
+    }
+
+    .list li {
+      margin: 8px 0;
+    }
+
+    .cv-line {
+      margin: 18px 0 0;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 800px) {
+      .topnav-inner {
+        gap: 18px;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .brand { margin-right: 6px; }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .title {
+        text-align: left;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <div class="brand">Xiangzhi Zhao</div>
+      <a class="navlink" href="#home">Home</a>
+      <a class="navlink" href="#research">Research</a>
+      <a class="navlink" href="#teaching">Teaching</a>
+      <a class="navlink" href="#cv">CV</a>
+    </div>
+  </header>
 
-<h1>Xiangzhi Zhao</h1>
+  <main class="page" id="home">
+    <div class="title">XIANGZHI ZHAO</div>
 
-<p>PhD Student in Economics</p>
+    <section class="hero">
+      <div class="photo">
+        <!-- Replace with your own image: img/profile.jpg -->
+        <div class="photo-placeholder">
+          Add your portrait here<br />
+          (similar to the Google Sites layout)
+        </div>
+      </div>
 
-<p>Indiana University</p>
+      <div class="intro">
+        <p>Welcome to my site!</p>
+        <p>I am a PhD Student in Economics at Indiana University Bloomington.</p>
+        <p>
+          My research focuses on applied microeconomics, especially trade, labor, and spatial economics.
+          I am interested in identification, demand estimation, and mechanisms behind local adjustment.
+        </p>
+        <p class="cv-line">Click <a href="#cv">here</a> for my CV.</p>
+      </div>
+    </section>
 
+    <section class="section" id="research">
+      <h2>Research papers</h2>
+      <div class="papers">
+        <div class="item">
+          <div class="paper-title">
+            <a href="#">Trade Shocks and Regional Immobility</a> <span class="small">(Job Market Paper)</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="paper-title">
+            <a href="#">Replication Project on Price Multipliers</a> <span class="small">(Work in Progress)</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="paper-title">
+            <a href="#">Another Paper Title</a> <span class="small">(Work in Progress)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="teaching">
+      <h2>Teaching</h2>
+      <div class="teaching">
+        <div class="item small">Teaching Assistant, Microeconomics</div>
+        <div class="item small">Teaching Assistant, Econometrics</div>
+      </div>
+    </section>
+
+    <section class="section" id="cv">
+      <h2>CV</h2>
+      <div class="item small">
+        Upload your CV as <strong>cv.pdf</strong> and link it here: <a href="cv.pdf">Download CV</a>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <h2>Education</h2>
+      <div class="education">
+        <div class="item small">Ph.D. in Economics, Indiana University Bloomington</div>
+        <div class="item small">M.A. in Economics, Your Previous University</div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
+
