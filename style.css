@@ -12,26 +12,41 @@
 }
 
 html,
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  color: var(--text);
+  background: var(--bg);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
 
 body {
-    font-family: Georgia, serif;
-    color: #333333;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.dark-mode {
+  --text: #f5f5f5;
+  --muted: #b3b3b3;
+  --line: #2c2c2c;
+  --link: #7cc4ff;
+  --bg: #121212;
+  --accent: #7cc4ff;
 }
 
 .hero-title {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 500;
-    color: #0C2340;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  color: #0c2340;
 }
 
 .bio p {
-    font-family: Georgia, serif;
-    font-size: 21px;
-    font-weight: 400;
-    line-height: 1.75;
-    color: #333333;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #333333;
 }
-
 
 a {
   color: var(--link);
@@ -53,10 +68,19 @@ a:hover {
   transition: all 0.35s ease;
 }
 
+body.dark-mode .topnav {
+  background: rgba(18, 18, 18, 0.96);
+}
+
 .topnav.scrolled {
   background: #16324f;
   border-bottom: 1px solid #10263c;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .topnav.scrolled {
+  background: #0f1f2f;
+  border-bottom: 1px solid #1f2937;
 }
 
 .topnav-inner {
@@ -74,6 +98,10 @@ a:hover {
   font-weight: 700;
   color: #1f2937;
   flex-shrink: 0;
+}
+
+body.dark-mode .brand {
+  color: #f5f5f5;
 }
 
 .brand svg {
@@ -101,6 +129,14 @@ a:hover {
   font-weight: 700;
 }
 
+body.dark-mode .navlink {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+body.dark-mode .navlink.active {
+  color: #7cc4ff;
+}
+
 .topnav.scrolled .brand {
   color: white;
 }
@@ -115,6 +151,27 @@ a:hover {
 
 .topnav.scrolled .navlink.active {
   color: #7cc4ff;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--accent);
+  padding: 4px 8px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(42, 111, 151, 0.08);
+}
+
+body.dark-mode .theme-toggle:hover {
+  background: rgba(124, 196, 255, 0.12);
 }
 
 /* Main layout */
@@ -133,6 +190,10 @@ a:hover {
   letter-spacing: -0.04em;
   color: #16324f;
   margin: 20px 0 24px;
+}
+
+body.dark-mode .title {
+  color: #f5f5f5;
 }
 
 .hero {
@@ -156,6 +217,10 @@ a:hover {
   overflow: hidden;
 }
 
+body.dark-mode .photo {
+  background: linear-gradient(180deg, #1f2937, #111827);
+}
+
 .photo img {
   width: 100%;
   height: 100%;
@@ -173,6 +238,10 @@ a:hover {
   padding: 20px;
 }
 
+body.dark-mode .photo-placeholder {
+  color: #b3b3b3;
+}
+
 .photo-caption {
   margin-top: 12px;
   text-align: center;
@@ -183,20 +252,15 @@ a:hover {
   line-height: 1.3;
 }
 
-.dark-mode {
-  background-color: #121212;
-  color: #f5f5f5;
-}
-
-.dark-mode .paper-card {
-  background-color: #1e1e1e;
-}
-
 .intro {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.22rem;
   line-height: 1.55;
   color: #374151;
+}
+
+body.dark-mode .intro {
+  color: #e5e7eb;
 }
 
 .intro p {
@@ -231,6 +295,10 @@ a:hover {
   letter-spacing: -0.02em;
 }
 
+body.dark-mode .research-heading {
+  color: #f5f5f5;
+}
+
 .paper-list {
   display: grid;
   gap: 16px;
@@ -244,10 +312,20 @@ a:hover {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
+body.dark-mode .paper-card {
+  background: #1a1a1a;
+  border-color: #2c2c2c;
+  box-shadow: none;
+}
+
 .paper-title {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.1rem;
   line-height: 1.5;
+}
+
+body.dark-mode .paper-title {
+  color: #f5f5f5;
 }
 
 .paper-meta {
@@ -290,6 +368,10 @@ a:hover {
   font-size: 1rem;
 }
 
+body.dark-mode .paper-abstract p {
+  color: #d1d5db;
+}
+
 .journal {
   font-size: 0.95rem;
   color: var(--muted);
@@ -311,6 +393,10 @@ a:hover {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.75;
   color: #374151;
+}
+
+body.dark-mode .philosophy-text {
+  color: #d1d5db;
 }
 
 .philosophy-text p {
