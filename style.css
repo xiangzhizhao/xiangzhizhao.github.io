@@ -211,10 +211,11 @@ body.dark-mode .title {
   flex-direction: column;
 }
 
+
 .photo {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: linear-gradient(180deg, #dbeafe, #f3f4f6);
+  border-radius: 12px;
   border: 1px solid var(--line);
   overflow: hidden;
 }
