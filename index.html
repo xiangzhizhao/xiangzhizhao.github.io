@@ -73,6 +73,8 @@
   <script>
     window.addEventListener("scroll", function () {
       const nav = document.querySelector(".topnav");
+      if (!nav) return;
+
       if (window.scrollY > 10) {
         nav.classList.add("scrolled");
       } else {
@@ -83,8 +85,9 @@
     const toggleBtn = document.getElementById("theme-toggle");
 
     function updateThemeButton() {
+      if (!toggleBtn) return;
       const isDark = document.body.classList.contains("dark-mode");
-      toggleBtn.textContent = isDark ? "🌙" : "☀";
+      toggleBtn.textContent = isDark ? "☾" : "☀";
       toggleBtn.setAttribute("aria-pressed", String(isDark));
     }
 
@@ -95,12 +98,14 @@
 
     updateThemeButton();
 
-    toggleBtn.addEventListener("click", function () {
-      document.body.classList.toggle("dark-mode");
-      const isDark = document.body.classList.contains("dark-mode");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-      updateThemeButton();
-    });
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateThemeButton();
+      });
+    }
   </script>
 </body>
 </html>
