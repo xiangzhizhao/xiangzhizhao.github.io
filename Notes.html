@@ -3,129 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beyond Research</title>
+  <title>Notes - Xiangzhi Zhao</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #ffffff;
-      --panel: #f7f9fc;
-      --text: #102033;
-      --muted: #5f6b7a;
-      --line: #dbe4ee;
-      --accent: #8fb8ff;
-      --accent-strong: #4f86f7;
-      --shadow: 0 18px 50px rgba(16, 32, 51, 0.08);
-      --radius: 22px;
-      --maxw: 1080px;
+    .notes-hero {
+      margin-top: 28px;
+      padding: 42px 28px 32px;
+      border: 1px solid rgba(219, 228, 238, 1);
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(143,184,255,0.16) 0%, rgba(255,255,255,1) 100%);
+      box-shadow: 0 18px 50px rgba(16, 32, 51, 0.08);
     }
 
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .wrap {
-      width: min(calc(100% - 32px), var(--maxw));
-      margin: 0 auto;
-      padding: 24px 0 48px;
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 18px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.86);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 24px rgba(16, 32, 51, 0.04);
-      position: sticky;
-      top: 14px;
-      z-index: 10;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      white-space: nowrap;
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(180deg, #ecf4ff 0%, #dceaff 100%);
-      border: 1px solid #c6dbff;
-      font-size: 18px;
-    }
-
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      padding: 8px 14px;
-      border-radius: 999px;
-      color: var(--muted);
-      transition: all .2s ease;
-    }
-
-    .nav a:hover,
-    .nav a.active {
-      color: var(--text);
-      background: #eef4ff;
-    }
-
-    .hero {
-      margin-top: 30px;
-      padding: 42px 28px 30px;
-      background: linear-gradient(180deg, rgba(143,184,255,0.18) 0%, rgba(255,255,255,1) 100%);
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .eyebrow {
+    .notes-kicker {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 7px 12px;
       border-radius: 999px;
       background: white;
-      border: 1px solid var(--line);
-      color: var(--muted);
+      border: 1px solid rgba(219, 228, 238, 1);
+      color: #5f6b7a;
       font-size: 0.92rem;
       margin-bottom: 18px;
     }
 
-    h1 {
+    .notes-title {
       font-size: clamp(2.2rem, 5vw, 4.2rem);
       line-height: 1.06;
       margin: 0 0 16px;
       letter-spacing: -0.04em;
+      color: #102033;
     }
 
-    .lead {
+    .notes-lead {
       max-width: 760px;
       font-size: 1.08rem;
-      color: var(--muted);
+      color: #5f6b7a;
       margin: 0 0 24px;
     }
 
@@ -142,10 +58,11 @@
       gap: 8px;
       padding: 12px 18px;
       border-radius: 999px;
-      border: 1px solid var(--line);
+      border: 1px solid #dbe4ee;
       background: white;
-      color: var(--text);
+      color: #102033;
       font-weight: 600;
+      text-decoration: none;
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
 
@@ -156,7 +73,7 @@
     }
 
     .btn.primary {
-      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      background: linear-gradient(180deg, #8fb8ff 0%, #4f86f7 100%);
       color: white;
       border-color: transparent;
     }
@@ -177,11 +94,12 @@
       margin: 0;
       font-size: 1.3rem;
       letter-spacing: -0.02em;
+      color: #102033;
     }
 
     .section-header p {
       margin: 0;
-      color: var(--muted);
+      color: #5f6b7a;
       font-size: 0.96rem;
       max-width: 560px;
       text-align: right;
@@ -195,14 +113,22 @@
 
     .card {
       background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border: 1px solid #dbe4ee;
+      border-radius: 22px;
       padding: 22px;
       box-shadow: 0 10px 30px rgba(16, 32, 51, 0.05);
       min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      border-color: #bfd3f7;
+      box-shadow: 0 14px 34px rgba(16, 32, 51, 0.08);
+      transform: translateY(-2px);
     }
 
     .card .icon {
@@ -220,12 +146,14 @@
     .card h3 {
       margin: 0 0 10px;
       font-size: 1.15rem;
+      color: #102033;
     }
 
     .card p {
       margin: 0;
-      color: var(--muted);
+      color: #5f6b7a;
       flex: 1;
+      line-height: 1.6;
     }
 
     .card .meta {
@@ -244,10 +172,19 @@
       border-radius: 999px;
     }
 
+    .note {
+      padding: 18px 20px;
+      border-left: 4px solid #4f86f7;
+      background: #f7fbff;
+      border-radius: 18px;
+      color: #41556d;
+      margin-top: 22px;
+    }
+
     .footer {
       margin-top: 28px;
       padding: 18px 4px 0;
-      color: var(--muted);
+      color: #5f6b7a;
       font-size: 0.94rem;
       display: flex;
       justify-content: space-between;
@@ -255,113 +192,280 @@
       flex-wrap: wrap;
     }
 
-    .note {
-      padding: 18px 20px;
-      border-left: 4px solid var(--accent-strong);
-      background: #f7fbff;
-      border-radius: 18px;
-      color: #41556d;
-      margin-top: 22px;
-    }
-
     @media (max-width: 900px) {
       .grid { grid-template-columns: 1fr; }
       .section-header { align-items: start; flex-direction: column; }
       .section-header p { text-align: left; }
-      .topbar { border-radius: 24px; flex-direction: column; align-items: flex-start; }
-      .nav { justify-content: flex-start; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="topbar">
+  <header class="topnav">
+    <div class="topnav-inner">
       <div class="brand">
-        <div class="brand-mark">☕</div>
-        <div>
-          <div>Xiangzhi Zhao</div>
-          <div style="font-size:0.88rem;color:var(--muted);font-weight:500;">Beyond Research</div>
-        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="1.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 8h10v5a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V8z"></path>
+          <path d="M16 9h1a1.5 1.5 0 0 1 0 3h-1"></path>
+          <path d="M7 19h10"></path>
+          <path d="M8 5c0 1 .8 1.3.8 2s-.8 1-.8 2"></path>
+          <path d="M12 5c0 1 .8 1.3.8 2s-.8 1-.8 2"></path>
+          <path d="M16 5c0 1 .8 1.3.8 2s-.8 1-.8 2"></path>
+        </svg>
+        <span>Xiangzhi Zhao</span>
       </div>
-      <nav class="nav" aria-label="Primary">
-        <a href="/">About</a>
-        <a href="/research/">Research</a>
-        <a href="/teaching/">Teaching</a>
-        <a href="/cv/">CV</a>
-        <a class="active" href="/beyond-research/">Beyond Research</a>
+
+      <nav class="navlinks" aria-label="Primary">
+        <a class="navlink" href="index.html">About</a>
+        <a class="navlink" href="research.html">Research</a>
+        <a class="navlink" href="teaching.html">Teaching</a>
+        <a class="navlink" href="cv.html">CV</a>
+        <a class="navlink active" href="notes.html">Notes</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">☀</button>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero">
-        <div class="eyebrow">Selected notes, images, and observations</div>
-        <h1>Beyond Research</h1>
-        <p class="lead">
-          A space for film notes, travel and cultural observations, and photography — a quieter corner of the site where I record what I notice, learn, and revisit.
-        </p>
-        <div class="cta-row">
-          <a class="btn primary" href="#sections">Explore sections</a>
-          <a class="btn" href="/">Back to About</a>
-        </div>
-      </section>
-
-      <section class="section" id="sections">
-        <div class="section-header">
-          <h2>Sections</h2>
-          <p>Three strands of the same habit: watching closely, writing simply, and keeping a visual record.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card">
-            <div>
-              <div class="icon">🎬</div>
-              <h3>Film Notes</h3>
-              <p>Short reflections on films, scenes, and ideas that stay with me after the credits roll.</p>
-            </div>
-            <div class="meta">
-              <span class="tag">Notes</span>
-              <span class="tag">Reviews</span>
-              <span class="tag">Scenes</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div>
-              <div class="icon">🧭</div>
-              <h3>Travel &amp; Cultural Observations</h3>
-              <p>Thoughts from places I visit, everyday details, and small differences that reveal how people live.</p>
-            </div>
-            <div class="meta">
-              <span class="tag">Places</span>
-              <span class="tag">Culture</span>
-              <span class="tag">Observation</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div>
-              <div class="icon">📷</div>
-              <h3>Photography</h3>
-              <p>A simple gallery of images that capture light, texture, and the rhythm of ordinary moments.</p>
-            </div>
-            <div class="meta">
-              <span class="tag">Portraits</span>
-              <span class="tag">Street</span>
-              <span class="tag">Landscape</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="note">
-          Tip: in GitHub Pages, you can keep this as <strong>/beyond-research/</strong> and link each card to a separate page later, or turn this into a single scrolling page with anchors.
-        </div>
-      </section>
-
-      <div class="footer">
-        <div>© Xiangzhi Zhao</div>
-        <div>Built as a single-file HTML page for GitHub Pages.</div>
+  <main class="page">
+    <section class="notes-hero">
+      <div class="notes-kicker">Selected notes, images, and observations</div>
+      <h1 class="notes-title">Notes</h1>
+      <p class="notes-lead">
+        A space for film notes, travel and cultural observations, and photography — a quieter corner of the site where I record what I notice, learn, and revisit.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="#sections">Explore sections</a>
+        <a class="btn" href="index.html">Back to About</a>
       </div>
-    </main>
-  </div>
+    </section>
+
+    <section class="section" id="sections">
+      <div class="section-header">
+        <h2>Sections</h2>
+        <p>Three strands of the same habit: watching closely, writing simply, and keeping a visual record.</p>
+      </div>
+
+      <div class="grid">
+        <a class="card" href="#film-notes">
+          <div>
+            <div class="icon">🎬</div>
+            <h3>Film Notes</h3>
+            <p>Short reflections on films, scenes, and ideas that stay with me after the credits roll.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Notes</span>
+            <span class="tag">Reviews</span>
+            <span class="tag">Scenes</span>
+          </div>
+        </a>
+
+        <a class="card" href="#travel-notes">
+          <div>
+            <div class="icon">🧭</div>
+            <h3>Travel &amp; Cultural Observations</h3>
+            <p>Thoughts from places I visit, everyday details, and small differences that reveal how people live.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Places</span>
+            <span class="tag">Culture</span>
+            <span class="tag">Observation</span>
+          </div>
+        </a>
+
+        <a class="card" href="#photo-notes">
+          <div>
+            <div class="icon">📷</div>
+            <h3>Photography</h3>
+            <p>A simple gallery of images that capture light, texture, and the rhythm of ordinary moments.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Portraits</span>
+            <span class="tag">Street</span>
+            <span class="tag">Landscape</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="note">
+        Tip: if you want each section to open a separate page later, keep the current structure and replace these card links with real file names such as <strong>film.html</strong>, <strong>travel.html</strong>, and <strong>photo.html</strong>.
+      </div>
+    </section>
+
+    <section class="section" id="film-notes">
+      <div class="section-header">
+        <h2>Film Notes</h2>
+        <p>Place your film reflections here.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div>
+            <div class="icon">1</div>
+            <h3>Note 1</h3>
+            <p>Add a short reflection, a quote, or a scene description here.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">2026</span>
+            <span class="tag">Draft</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">2</div>
+            <h3>Note 2</h3>
+            <p>This can be a second entry, or you can delete this block if you do not need it.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Essay</span>
+            <span class="tag">Film</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">3</div>
+            <h3>Note 3</h3>
+            <p>Use this area as a placeholder until you add real notes.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Short</span>
+            <span class="tag">Text</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="travel-notes">
+      <div class="section-header">
+        <h2>Travel &amp; Cultural Observations</h2>
+        <p>Place your travel writing here.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div>
+            <div class="icon">A</div>
+            <h3>Observation 1</h3>
+            <p>Write about a city, a neighborhood, a habit, or a small detail that stood out to you.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">City</span>
+            <span class="tag">Field note</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">B</div>
+            <h3>Observation 2</h3>
+            <p>You can keep this format very short. The page will still look clean.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Travel</span>
+            <span class="tag">Culture</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">C</div>
+            <h3>Observation 3</h3>
+            <p>Replace this with an actual post once you are ready.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Draft</span>
+            <span class="tag">Note</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="photo-notes">
+      <div class="section-header">
+        <h2>Photography</h2>
+        <p>Place your image collection here.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div>
+            <div class="icon">📷</div>
+            <h3>Photo Set 1</h3>
+            <p>Later, you can replace this text with images or link this card to a photo page.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Photo</span>
+            <span class="tag">Gallery</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">🖼️</div>
+            <h3>Photo Set 2</h3>
+            <p>This keeps the page from looking empty even before the gallery is finished.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Images</span>
+            <span class="tag">Archive</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">✦</div>
+            <h3>Photo Set 3</h3>
+            <p>Add captions, dates, or locations here when you start uploading photos.</p>
+          </div>
+          <div class="meta">
+            <span class="tag">Caption</span>
+            <span class="tag">Visual</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© Xiangzhi Zhao</div>
+      <div>Built as a single-file HTML page.</div>
+    </div>
+  </main>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const nav = document.querySelector(".topnav");
+      if (!nav) return;
+
+      if (window.scrollY > 10) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    });
+
+    const toggleBtn = document.getElementById("theme-toggle");
+
+    function updateThemeButton() {
+      if (!toggleBtn) return;
+      const isDark = document.body.classList.contains("dark-mode");
+      toggleBtn.textContent = isDark ? "☾" : "☀";
+      toggleBtn.setAttribute("aria-pressed", String(isDark));
+    }
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+
+    updateThemeButton();
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateThemeButton();
+      });
+    }
+  </script>
 </body>
 </html>
