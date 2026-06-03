@@ -64,23 +64,21 @@ a:hover {
 .topnav.scrolled .navlink.active {
     color: #7cc4ff;
 }
+
 .topnav-inner {
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
-  gap: 34px;
   align-items: center;
   padding: 14px 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
 }
-
 
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
   font-weight: 700;
+  color: #1f2937;
 }
 
 .brand svg {
@@ -88,15 +86,26 @@ a:hover {
   flex-shrink: 0;
 }
 
+.navlinks {
+  margin-left: auto;
+  display: flex;
+  gap: 34px;
+  align-items: center;
+}
+
 .navlink {
   color: #6b7280;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
   font-weight: 500;
 }
 
 .navlink.active {
-  color: var(--accent);
+  color: #2A6F97;
   font-weight: 700;
 }
+
+
 
 .page {
   max-width: 1100px;
