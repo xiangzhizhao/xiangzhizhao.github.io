@@ -44,9 +44,9 @@
   if (philosophy && readMoreBtn) {
     readMoreBtn.addEventListener("click", function () {
       philosophy.classList.toggle("expanded");
-      readMoreBtn.textContent = philosophy.classList.contains("expanded")
-        ? "Show Less"
-        : "Read More";
+    readMoreBtn.textContent = philosophy.classList.contains("expanded")
+  ? "− Less"
+  : "+ More";
     });
   }
 </script>
