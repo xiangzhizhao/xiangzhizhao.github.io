@@ -6,45 +6,31 @@
   <title>Research - Xiangzhi Zhao</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-  <script>
-window.addEventListener("scroll", function () {
-
-    const nav = document.querySelector(".topnav");
-
-    if (window.scrollY > 80) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
-    }
-
-});
-</script>
 <body>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <div class="brand">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="1.2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 4v2"/>
+          <path d="M12 4v2"/>
+          <path d="M17 4v2"/>
+          <path d="M5.5 9h11v4.5a4.5 4.5 0 0 1-4.5 4.5H10a4.5 4.5 0 0 1-4.5-4.5V9z"/>
+          <path d="M16.5 10h1a1.8 1.8 0 0 1 0 3.6h-1"/>
+          <path d="M6.5 19.5h10.5"/>
+        </svg>
+        <span>Xiangzhi Zhao</span>
+      </div>
 
-
-      <header class="topnav">
-  <div class="topnav-inner">
-    <div class="brand">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
-           fill="none" stroke="currentColor" stroke-width="1.2"
-           stroke-linecap="round" stroke-linejoin="round">
-        <path d="M7 4v2"/>
-        <path d="M12 4v2"/>
-        <path d="M17 4v2"/>
-        <path d="M5.5 9h11v4.5a4.5 4.5 0 0 1-4.5 4.5H10a4.5 4.5 0 0 1-4.5-4.5V9z"/>
-        <path d="M16.5 10h1a1.8 1.8 0 0 1 0 3.6h-1"/>
-        <path d="M6.5 19.5h10.5"/>
-      </svg>
-      <span>Xiangzhi Zhao</span>
+      <nav class="navlinks">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink active" href="research.html">Research</a>
+        <a class="navlink" href="teaching.html">Teaching</a>
+        <a class="navlink" href="cv.html">CV</a>
+      </nav>
     </div>
-
-    <a class="navlink" href="index.html">Home</a>
-    <a class="navlink active" href="research.html">Research</a>
-    <a class="navlink" href="teaching.html">Teaching</a>
-    <a class="navlink" href="cv.html">CV</a>
-  </div>
-</header>
-    
+  </header>
 
   <main class="page research-page">
     <section class="research-block">
@@ -54,10 +40,7 @@ window.addEventListener("scroll", function () {
         <div class="paper-title">
           Carbon Market Pilot Policies and Corporate Green Governance Performance:
           Evidence from China
-        </div>
-
-        <div class="paper-meta">
-          Contemporary Economic Policy, 2026
+          <span class="journal">(<em>Contemporary Economic Policy</em>, 2026)</span>
         </div>
 
         <div class="paper-links">
@@ -114,6 +97,17 @@ window.addEventListener("scroll", function () {
       </div>
     </section>
   </main>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const nav = document.querySelector(".topnav");
+      if (window.scrollY > 1) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    });
+  </script>
 </body>
 </html>
 
