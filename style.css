@@ -28,41 +28,21 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Top navigation */
 .topnav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(8px);
-
-    border-bottom: 1px solid #e5e7eb;
-
-    transition: all 0.35s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e5e7eb;
+  transition: all 0.35s ease;
 }
 
 .topnav.scrolled {
-    background: #16324f;
-
-    border-bottom: 1px solid #10263c;
-
-    box-shadow: 0 4px 18px rgba(0,0,0,.15);
-}
-
-.topnav.scrolled .brand {
-    color: white;
-}
-
-.topnav.scrolled .navlink {
-    color: rgba(255,255,255,.85);
-}
-
-.topnav.scrolled .navlink:hover {
-    color: white;
-}
-
-.topnav.scrolled .navlink.active {
-    color: #7cc4ff;
+  background: #16324f;
+  border-bottom: 1px solid #10263c;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
 }
 
 .topnav-inner {
@@ -79,10 +59,11 @@ a:hover {
   gap: 10px;
   font-weight: 700;
   color: #1f2937;
+  flex-shrink: 0;
 }
 
 .brand svg {
-  color: #2A6F97;
+  color: #2a6f97;
   flex-shrink: 0;
 }
 
@@ -91,22 +72,38 @@ a:hover {
   display: flex;
   gap: 34px;
   align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  white-space: nowrap;
 }
 
 .navlink {
   color: #6b7280;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
   font-weight: 500;
 }
 
 .navlink.active {
-  color: #2A6F97;
+  color: #2a6f97;
   font-weight: 700;
 }
 
+.topnav.scrolled .brand {
+  color: white;
+}
 
+.topnav.scrolled .navlink {
+  color: rgba(255, 255, 255, 0.85);
+}
 
+.topnav.scrolled .navlink:hover {
+  color: white;
+}
+
+.topnav.scrolled .navlink.active {
+  color: #7cc4ff;
+}
+
+/* Main layout */
 .page {
   max-width: 1100px;
   margin: 0 auto;
@@ -191,9 +188,9 @@ a:hover {
 }
 
 .item {
-    padding: 18px 16px;
-    border-top: 1px solid #e5e7eb;
-    background: #fff;
+  padding: 18px 16px;
+  border-top: 1px solid #e5e7eb;
+  background: #fff;
 }
 
 .item:first-child {
@@ -216,15 +213,15 @@ a:hover {
   font-size: 1rem;
 }
 
+/* Mobile */
 @media (max-width: 800px) {
   .topnav-inner {
     gap: 18px;
     overflow-x: auto;
-    white-space: nowrap;
   }
 
-  .brand {
-    margin-right: 6px;
+  .navlinks {
+    gap: 18px;
   }
 
   .hero {
