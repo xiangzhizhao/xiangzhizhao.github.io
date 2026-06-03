@@ -186,7 +186,7 @@ body.dark-mode .theme-toggle:hover {
 .title {
   text-align: center;
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(3rem, 5vw, 4rem);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.04em;
@@ -200,8 +200,8 @@ body.dark-mode .title {
 
 .hero {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 38px;
+  grid-template-columns: 220px 1fr;
+  gap: 34px;
   align-items: start;
   margin-bottom: 42px;
 }
@@ -211,38 +211,15 @@ body.dark-mode .title {
   flex-direction: column;
 }
 
-
 .photo {
   width: 100%;
   aspect-ratio: 3 / 4;
   border-radius: 12px;
   border: 1px solid var(--line);
   overflow: hidden;
-}
-.social-links {
-  margin-top: 12px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
+  background: linear-gradient(180deg, #dbeafe, #f3f4f6);
 }
 
-.social-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.social-links img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.social-links img:hover {
-  opacity: 0.8;
-  transform: translateY(-1px);
-}
 body.dark-mode .photo {
   background: linear-gradient(180deg, #1f2937, #111827);
 }
@@ -278,10 +255,46 @@ body.dark-mode .photo-placeholder {
   line-height: 1.3;
 }
 
+.social-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-links img:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
 .intro {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.22rem;
-  line-height: 1.55;
+  font-size: 1.18rem;
+  line-height: 1.6;
   color: #374151;
 }
 
@@ -499,7 +512,7 @@ body.dark-mode .philosophy-preview::after {
   }
 
   .title {
-    font-size: clamp(2.4rem, 8vw, 3.4rem);
+    font-size: clamp(2.2rem, 7vw, 3rem);
   }
 
   .photo-caption {
