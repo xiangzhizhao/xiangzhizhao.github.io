@@ -37,6 +37,7 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
+  overflow-x: hidden;
 }
 
 body.dark-mode {
@@ -177,6 +178,7 @@ body.dark-mode .theme-toggle:hover {
 .page {
   max-width: 1100px;
   margin: 0 auto;
+  min-height: calc(100vh - 72px);
   padding: 40px 20px 64px;
   background: var(--bg);
 }
@@ -398,6 +400,60 @@ body.dark-mode .philosophy-text {
 
 .philosophy-text p {
   margin: 0 0 14px;
+}
+
+/* Teaching philosophy preview */
+.philosophy-preview {
+  max-height: 8.5em;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease;
+}
+
+.philosophy-preview::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2.5em;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    var(--surface)
+  );
+  pointer-events: none;
+}
+
+.philosophy-preview.expanded {
+  max-height: 2000px;
+}
+
+.philosophy-preview.expanded::after {
+  display: none;
+}
+
+.read-more-btn {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
+body.dark-mode .philosophy-preview::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0),
+    var(--surface)
+  );
 }
 
 /* Mobile */
