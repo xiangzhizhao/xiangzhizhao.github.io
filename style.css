@@ -110,23 +110,18 @@ a:hover {
   padding: 40px 20px 64px;
 }
 
-.title {
+.intro {
+    font-family: "EB Garamond", serif;
 
-    font-family: "Cormorant Garamond", serif;
+    font-size: 1.18rem;
 
-    font-size: 4.3rem;
+    line-height: 1.45;
 
-    font-weight: 500;
+    color: #374151;
+}
 
-    line-height: 1;
-
-    letter-spacing: -0.02em;
-
-    color: #16324f;
-
-    text-align: center;
-
-    margin: 20px 0 45px;
+.intro p {
+    margin: 0 0 12px;
 }
 
 .welcome {
