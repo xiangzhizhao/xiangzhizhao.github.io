@@ -47,11 +47,21 @@ a:hover {
   font-size: 18px;
 }
 
+
 .brand {
   font-weight: 700;
   color: #1f2937;
   margin-right: auto;
   letter-spacing: 0.2px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  font-size: 1.1rem;
+  opacity: 0.85;
 }
 
 .navlink {
