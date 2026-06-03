@@ -111,17 +111,17 @@ a:hover {
 }
 
 .intro {
-    font-family: "EB Garamond", serif;
+  font-family: "EB Garamond", Georgia, serif;
 
-    font-size: 1.18rem;
+  font-size: 1.15rem;
 
-    line-height: 1.45;
+  line-height: 1.45;
 
-    color: #374151;
+  color: #374151;
 }
 
 .intro p {
-    margin: 0 0 12px;
+  margin: 0 0 10px;
 }
 
 .welcome {
