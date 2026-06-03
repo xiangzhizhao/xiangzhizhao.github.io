@@ -1,34 +1,318 @@
-<section class="notes-directory">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes - Xiangzhi Zhao</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
-  <p class="notes-intro">
-    A collection of essays, reflections, travel observations, and photography notes.
-  </p>
+  <style>
+    .notes-page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 24px 72px;
+    }
 
-  <div class="notes-group">
-    <h2>Film</h2>
-    <ul>
-      <li><a href="notes/before-sunrise.html">Before Sunrise and the Value of Conversation</a></li>
-      <li><a href="notes/yi-yi.html">Yi Yi: Time and Memory</a></li>
-      <li><a href="notes/ozu.html">The Quiet Pace of Ozu</a></li>
-    </ul>
-  </div>
+    .notes-hero {
+      margin: 36px 0 52px;
+      padding-top: 12px;
+    }
 
-  <div class="notes-group">
-    <h2>Travel & Culture</h2>
-    <ul>
-      <li><a href="notes/kyoto.html">Walking Through Kyoto</a></li>
-      <li><a href="notes/bloomington.html">A Winter Afternoon in Bloomington</a></li>
-      <li><a href="notes/travel-slowly.html">Learning to Travel Slowly</a></li>
-    </ul>
-  </div>
+    .notes-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3.2rem, 7vw, 5.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin: 0 0 18px;
+      color: #102033;
+    }
 
-  <div class="notes-group">
-    <h2>Photography</h2>
-    <ul>
-      <li><a href="notes/tokyo-photo.html">Street Photography in Tokyo</a></li>
-      <li><a href="notes/indiana-fog.html">Foggy Mornings in Indiana</a></li>
-      <li><a href="notes/light.html">Notes on Light and Composition</a></li>
-    </ul>
-  </div>
+    .notes-divider {
+      width: 76px;
+      height: 2px;
+      background: rgba(79, 134, 247, 0.22);
+      margin: 0 0 22px;
+    }
 
-</section>
+    .notes-intro {
+      max-width: 720px;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: #5f6b7a;
+      margin: 0;
+    }
+
+    .notes-section {
+      margin-top: 48px;
+    }
+
+    .notes-section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(219, 228, 238, 0.95);
+    }
+
+    .notes-section-header h2 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.9rem, 3vw, 2.45rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #102033;
+      text-transform: uppercase;
+      font-size: 1.55rem;
+      letter-spacing: 0.12em;
+    }
+
+    .notes-section-header span {
+      color: #8a95a4;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .notes-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .notes-item {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(219, 228, 238, 0.62);
+    }
+
+    .notes-date {
+      font-size: 0.93rem;
+      letter-spacing: 0.02em;
+      color: #8a95a4;
+      white-space: nowrap;
+    }
+
+    .notes-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.35rem, 2.1vw, 1.8rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #102033;
+      text-decoration: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .notes-link:hover {
+      opacity: 0.78;
+      transform: translateX(2px);
+    }
+
+    .notes-arrow {
+      color: #9aa6b5;
+      font-size: 1.4rem;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .notes-footer {
+      margin-top: 56px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(219, 228, 238, 0.95);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: #8a95a4;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 820px) {
+      .notes-page {
+        padding: 22px 18px 64px;
+      }
+
+      .notes-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        align-items: start;
+      }
+
+      .notes-arrow {
+        display: none;
+      }
+
+      .notes-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .notes-section-header span {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <div class="brand">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="1.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 8h10v5a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V8z"></path>
+          <path d="M16 9h1a1.5 1.5 0 0 1 0 3h-1"></path>
+          <path d="M7 19h10"></path>
+          <path d="M8 5c0 1 .8 1.3.8 2s-.8 1-.8 2"></path>
+          <path d="M12 5c0 1 .8 1.3.8 2s-.8 1-.8 2"></path>
+          <path d="M16 5c0 1 .8 1.3.8 2s-.8 1-.8 2"></path>
+        </svg>
+        <span>Xiangzhi Zhao</span>
+      </div>
+
+      <nav class="navlinks" aria-label="Primary">
+        <a class="navlink" href="index.html">About</a>
+        <a class="navlink" href="research.html">Research</a>
+        <a class="navlink" href="teaching.html">Teaching</a>
+        <a class="navlink" href="cv.html">CV</a>
+        <a class="navlink active" href="notes.html">Notes</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="notes-page">
+    <section class="notes-hero">
+      <h1 class="notes-title">Notes</h1>
+      <div class="notes-divider"></div>
+      <p class="notes-intro">
+        A collection of essays, reflections, travel observations, and photography notes.
+      </p>
+    </section>
+
+    <section class="notes-section" aria-labelledby="film-heading">
+      <div class="notes-section-header">
+        <h2 id="film-heading">Film</h2>
+        <span>Selected film notes</span>
+      </div>
+      <ul class="notes-list">
+        <li class="notes-item">
+          <div class="notes-date">Jan 15, 2026</div>
+          <a class="notes-link" href="notes/before-sunrise.html">Before Sunrise and the Value of Conversation</a>
+          <div class="notes-arrow">→</div>
+        </li>
+        <li class="notes-item">
+          <div class="notes-date">Jan 8, 2026</div>
+          <a class="notes-link" href="notes/yi-yi.html">Yi Yi: Time and Memory</a>
+          <div class="notes-arrow">→</div>
+        </li>
+        <li class="notes-item">
+          <div class="notes-date">Dec 28, 2025</div>
+          <a class="notes-link" href="notes/ozu.html">The Quiet Pace of Ozu</a>
+          <div class="notes-arrow">→</div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="notes-section" aria-labelledby="travel-heading">
+      <div class="notes-section-header">
+        <h2 id="travel-heading">Travel &amp; Culture</h2>
+        <span>Place, observation, and memory</span>
+      </div>
+      <ul class="notes-list">
+        <li class="notes-item">
+          <div class="notes-date">Jan 10, 2026</div>
+          <a class="notes-link" href="notes/kyoto.html">Walking Through Kyoto</a>
+          <div class="notes-arrow">→</div>
+        </li>
+        <li class="notes-item">
+          <div class="notes-date">Dec 20, 2025</div>
+          <a class="notes-link" href="notes/bloomington.html">A Winter Afternoon in Bloomington</a>
+          <div class="notes-arrow">→</div>
+        </li>
+        <li class="notes-item">
+          <div class="notes-date">Nov 30, 2025</div>
+          <a class="notes-link" href="notes/travel-slowly.html">Learning to Travel Slowly</a>
+          <div class="notes-arrow">→</div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="notes-section" aria-labelledby="photo-heading">
+      <div class="notes-section-header">
+        <h2 id="photo-heading">Photography</h2>
+        <span>Image notes and visual records</span>
+      </div>
+      <ul class="notes-list">
+        <li class="notes-item">
+          <div class="notes-date">Jan 5, 2026</div>
+          <a class="notes-link" href="notes/tokyo-photo.html">Street Photography in Tokyo</a>
+          <div class="notes-arrow">→</div>
+        </li>
+        <li class="notes-item">
+          <div class="notes-date">Dec 12, 2025</div>
+          <a class="notes-link" href="notes/indiana-fog.html">Foggy Mornings in Indiana</a>
+          <div class="notes-arrow">→</div>
+        </li>
+        <li class="notes-item">
+          <div class="notes-date">Nov 18, 2025</div>
+          <a class="notes-link" href="notes/light.html">Notes on Light and Composition</a>
+          <div class="notes-arrow">→</div>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="notes-footer">
+      <div>© Xiangzhi Zhao</div>
+      <div>Built as a clean archive page.</div>
+    </footer>
+  </main>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const nav = document.querySelector(".topnav");
+      if (!nav) return;
+
+      if (window.scrollY > 10) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    });
+
+    const toggleBtn = document.getElementById("theme-toggle");
+
+    function updateThemeButton() {
+      if (!toggleBtn) return;
+      const isDark = document.body.classList.contains("dark-mode");
+      toggleBtn.textContent = isDark ? "☾" : "☀";
+      toggleBtn.setAttribute("aria-pressed", String(isDark));
+    }
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+
+    updateThemeButton();
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateThemeButton();
+      });
+    }
+  </script>
+</body>
+</html>
