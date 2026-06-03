@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beyond Research</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #f7f9fc;
+      --text: #102033;
+      --muted: #5f6b7a;
+      --line: #dbe4ee;
+      --accent: #8fb8ff;
+      --accent-strong: #4f86f7;
+      --shadow: 0 18px 50px rgba(16, 32, 51, 0.08);
+      --radius: 22px;
+      --maxw: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--maxw));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.86);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(16, 32, 51, 0.04);
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #ecf4ff 0%, #dceaff 100%);
+      border: 1px solid #c6dbff;
+      font-size: 18px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: all .2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+      background: #eef4ff;
+    }
+
+    .hero {
+      margin-top: 30px;
+      padding: 42px 28px 30px;
+      background: linear-gradient(180deg, rgba(143,184,255,0.18) 0%, rgba(255,255,255,1) 100%);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.06;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      max-width: 760px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--text);
+      font-weight: 600;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: #bfd3f7;
+      box-shadow: 0 12px 28px rgba(79, 134, 247, 0.14);
+    }
+
+    .btn.primary {
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      color: white;
+      border-color: transparent;
+    }
+
+    .section {
+      margin-top: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 4px 14px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      max-width: 560px;
+      text-align: right;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(16, 32, 51, 0.05);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #eef4ff;
+      border: 1px solid #d5e3ff;
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .card .meta {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.84rem;
+      color: #35506f;
+      background: #f1f6ff;
+      border: 1px solid #d9e6ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding: 18px 4px 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .note {
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent-strong);
+      background: #f7fbff;
+      border-radius: 18px;
+      color: #41556d;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .section-header { align-items: start; flex-direction: column; }
+      .section-header p { text-align: left; }
+      .topbar { border-radius: 24px; flex-direction: column; align-items: flex-start; }
+      .nav { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">☕</div>
+        <div>
+          <div>Xiangzhi Zhao</div>
+          <div style="font-size:0.88rem;color:var(--muted);font-weight:500;">Beyond Research</div>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">About</a>
+        <a href="/research/">Research</a>
+        <a href="/teaching/">Teaching</a>
+        <a href="/cv/">CV</a>
+        <a class="active" href="/beyond-research/">Beyond Research</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Selected notes, images, and observations</div>
+        <h1>Beyond Research</h1>
+        <p class="lead">
+          A space for film notes, travel and cultural observations, and photography — a quieter corner of the site where I record what I notice, learn, and revisit.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#sections">Explore sections</a>
+          <a class="btn" href="/">Back to About</a>
+        </div>
+      </section>
+
+      <section class="section" id="sections">
+        <div class="section-header">
+          <h2>Sections</h2>
+          <p>Three strands of the same habit: watching closely, writing simply, and keeping a visual record.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div>
+              <div class="icon">🎬</div>
+              <h3>Film Notes</h3>
+              <p>Short reflections on films, scenes, and ideas that stay with me after the credits roll.</p>
+            </div>
+            <div class="meta">
+              <span class="tag">Notes</span>
+              <span class="tag">Reviews</span>
+              <span class="tag">Scenes</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div>
+              <div class="icon">🧭</div>
+              <h3>Travel &amp; Cultural Observations</h3>
+              <p>Thoughts from places I visit, everyday details, and small differences that reveal how people live.</p>
+            </div>
+            <div class="meta">
+              <span class="tag">Places</span>
+              <span class="tag">Culture</span>
+              <span class="tag">Observation</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div>
+              <div class="icon">📷</div>
+              <h3>Photography</h3>
+              <p>A simple gallery of images that capture light, texture, and the rhythm of ordinary moments.</p>
+            </div>
+            <div class="meta">
+              <span class="tag">Portraits</span>
+              <span class="tag">Street</span>
+              <span class="tag">Landscape</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="note">
+          Tip: in GitHub Pages, you can keep this as <strong>/beyond-research/</strong> and link each card to a separate page later, or turn this into a single scrolling page with anchors.
+        </div>
+      </section>
+
+      <div class="footer">
+        <div>© Xiangzhi Zhao</div>
+        <div>Built as a single-file HTML page for GitHub Pages.</div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
