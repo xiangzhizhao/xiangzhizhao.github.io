@@ -10,70 +10,91 @@
 
   <style>
     .notes-page {
-      max-width: 1040px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 32px 24px 72px;
+      padding: 28px 22px 72px;
     }
 
     .notes-hero {
-      margin: 36px 0 52px;
-      padding-top: 12px;
+      margin: 28px 0 40px;
+      padding-top: 10px;
     }
 
     .notes-title {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(3.2rem, 7vw, 5.6rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      margin: 0 0 18px;
+      font-size: clamp(2.35rem, 4.8vw, 3.35rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      margin: 0 0 14px;
       color: #102033;
     }
 
     .notes-divider {
-      width: 76px;
+      width: 64px;
       height: 2px;
-      background: rgba(79, 134, 247, 0.22);
-      margin: 0 0 22px;
+      background: rgba(79, 134, 247, 0.18);
+      margin: 0 0 18px;
     }
 
     .notes-intro {
       max-width: 720px;
-      font-size: 1.08rem;
-      line-height: 1.8;
+      font-size: 1.02rem;
+      line-height: 1.75;
       color: #5f6b7a;
       margin: 0;
     }
 
     .notes-section {
-      margin-top: 48px;
+      margin-top: 38px;
     }
 
     .notes-section-header {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(219, 228, 238, 0.95);
+      gap: 18px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(219, 228, 238, 0.92);
     }
 
     .notes-section-header h2 {
       margin: 0;
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(1.9rem, 3vw, 2.45rem);
+      font-size: 1.05rem;
       line-height: 1;
-      letter-spacing: -0.03em;
+      letter-spacing: 0.18em;
       color: #102033;
       text-transform: uppercase;
-      font-size: 1.55rem;
-      letter-spacing: 0.12em;
+      font-weight: 600;
     }
 
-    .notes-section-header span {
-      color: #8a95a4;
+    .section-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #7f8b99;
+      text-decoration: none;
       font-size: 0.95rem;
       white-space: nowrap;
+      transition: color 0.18s ease, transform 0.18s ease;
+    }
+
+    .section-more::after {
+      content: "→";
+      font-size: 1rem;
+      line-height: 1;
+      color: #7f8b99;
+      transition: transform 0.18s ease, color 0.18s ease;
+    }
+
+    .section-more:hover {
+      color: #102033;
+    }
+
+    .section-more:hover::after {
+      color: #102033;
+      transform: translateX(2px);
     }
 
     .notes-list {
@@ -84,15 +105,15 @@
 
     .notes-item {
       display: grid;
-      grid-template-columns: 120px 1fr auto;
+      grid-template-columns: 130px 1fr;
       gap: 18px;
       align-items: center;
-      padding: 18px 0;
+      padding: 14px 0;
       border-bottom: 1px solid rgba(219, 228, 238, 0.62);
     }
 
     .notes-date {
-      font-size: 0.93rem;
+      font-size: 0.92rem;
       letter-spacing: 0.02em;
       color: #8a95a4;
       white-space: nowrap;
@@ -101,11 +122,11 @@
     .notes-link {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
       width: fit-content;
+      max-width: 100%;
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(1.35rem, 2.1vw, 1.8rem);
-      line-height: 1.15;
+      font-size: clamp(1.18rem, 1.9vw, 1.52rem);
+      line-height: 1.2;
       letter-spacing: -0.02em;
       color: #102033;
       text-decoration: none;
@@ -117,15 +138,8 @@
       transform: translateX(2px);
     }
 
-    .notes-arrow {
-      color: #9aa6b5;
-      font-size: 1.4rem;
-      line-height: 1;
-      user-select: none;
-    }
-
     .notes-footer {
-      margin-top: 56px;
+      margin-top: 52px;
       padding-top: 18px;
       border-top: 1px solid rgba(219, 228, 238, 0.95);
       display: flex;
@@ -143,12 +157,8 @@
 
       .notes-item {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 6px;
         align-items: start;
-      }
-
-      .notes-arrow {
-        display: none;
       }
 
       .notes-section-header {
@@ -156,8 +166,8 @@
         align-items: flex-start;
       }
 
-      .notes-section-header span {
-        white-space: normal;
+      .section-more {
+        font-size: 0.92rem;
       }
     }
   </style>
@@ -201,72 +211,63 @@
 
     <section class="notes-section" aria-labelledby="film-heading">
       <div class="notes-section-header">
-        <h2 id="film-heading">Film</h2>
-        <span>Selected film notes</span>
+        <h2 id="film-heading">FILM</h2>
+        <a class="section-more" href="film.html">View all</a>
       </div>
       <ul class="notes-list">
         <li class="notes-item">
           <div class="notes-date">Jan 15, 2026</div>
           <a class="notes-link" href="notes/before-sunrise.html">Before Sunrise and the Value of Conversation</a>
-          <div class="notes-arrow">→</div>
         </li>
         <li class="notes-item">
           <div class="notes-date">Jan 8, 2026</div>
           <a class="notes-link" href="notes/yi-yi.html">Yi Yi: Time and Memory</a>
-          <div class="notes-arrow">→</div>
         </li>
         <li class="notes-item">
           <div class="notes-date">Dec 28, 2025</div>
           <a class="notes-link" href="notes/ozu.html">The Quiet Pace of Ozu</a>
-          <div class="notes-arrow">→</div>
         </li>
       </ul>
     </section>
 
     <section class="notes-section" aria-labelledby="travel-heading">
       <div class="notes-section-header">
-        <h2 id="travel-heading">Travel &amp; Culture</h2>
-        <span>Place, observation, and memory</span>
+        <h2 id="travel-heading">TRAVEL &amp; CULTURE</h2>
+        <a class="section-more" href="travel.html">View all</a>
       </div>
       <ul class="notes-list">
         <li class="notes-item">
           <div class="notes-date">Jan 10, 2026</div>
           <a class="notes-link" href="notes/kyoto.html">Walking Through Kyoto</a>
-          <div class="notes-arrow">→</div>
         </li>
         <li class="notes-item">
           <div class="notes-date">Dec 20, 2025</div>
           <a class="notes-link" href="notes/bloomington.html">A Winter Afternoon in Bloomington</a>
-          <div class="notes-arrow">→</div>
         </li>
         <li class="notes-item">
           <div class="notes-date">Nov 30, 2025</div>
           <a class="notes-link" href="notes/travel-slowly.html">Learning to Travel Slowly</a>
-          <div class="notes-arrow">→</div>
         </li>
       </ul>
     </section>
 
     <section class="notes-section" aria-labelledby="photo-heading">
       <div class="notes-section-header">
-        <h2 id="photo-heading">Photography</h2>
-        <span>Image notes and visual records</span>
+        <h2 id="photo-heading">PHOTOGRAPHY</h2>
+        <a class="section-more" href="photography.html">View all</a>
       </div>
       <ul class="notes-list">
         <li class="notes-item">
           <div class="notes-date">Jan 5, 2026</div>
           <a class="notes-link" href="notes/tokyo-photo.html">Street Photography in Tokyo</a>
-          <div class="notes-arrow">→</div>
         </li>
         <li class="notes-item">
           <div class="notes-date">Dec 12, 2025</div>
           <a class="notes-link" href="notes/indiana-fog.html">Foggy Mornings in Indiana</a>
-          <div class="notes-arrow">→</div>
         </li>
         <li class="notes-item">
           <div class="notes-date">Nov 18, 2025</div>
           <a class="notes-link" href="notes/light.html">Notes on Light and Composition</a>
-          <div class="notes-arrow">→</div>
         </li>
       </ul>
     </section>
@@ -316,3 +317,4 @@
   </script>
 </body>
 </html>
+
