@@ -16,11 +16,12 @@ body {
     font-family: "Libre Baskerville", Georgia, serif;
 }
 
-.bio-text {
+.bio p {
+    font-family: Georgia, serif;
     font-size: 20px;
-    line-height: 1.8;
     font-weight: 400;
-    color: #303030;
+    line-height: 1.8;
+    color: #333;
 }
 a {
   color: var(--link);
