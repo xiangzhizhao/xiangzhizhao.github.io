@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -24,78 +23,73 @@
         <span>Xiangzhi Zhao</span>
       </div>
 
-
-  <nav class="navlinks">
-    <a class="navlink" href="index.html">Home</a>
-    <a class="navlink" href="research.html">Research</a>
-    <a class="navlink active" href="teaching.html">Teaching</a>
-    <a class="navlink" href="cv.html">CV</a>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">☀</button>
-  </nav>
-</div>
-
-
+      <nav class="navlinks">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="research.html">Research</a>
+        <a class="navlink active" href="teaching.html">Teaching</a>
+        <a class="navlink" href="cv.html">CV</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">☀</button>
+      </nav>
+    </div>
   </header>
 
   <main class="page teaching-page">
     <section class="teaching-block">
       <h2 class="research-heading">Teaching Experience</h2>
 
+      <div class="paper-list">
+        <article class="paper-card">
+          <div class="paper-title">
+            Teaching Assistant, EB251 FUND OF ECON FOR BUSINESS II
+          </div>
+        </article>
 
-  <div class="paper-list">
-    <article class="paper-card">
-      <div class="paper-title">
-        Teaching Assistant, EB251 FUND OF ECON FOR BUSINESS II
+        <article class="paper-card">
+          <div class="paper-title">
+            Teaching Assistant, [add course here]
+          </div>
+        </article>
       </div>
-    </article>
+    </section>
 
-    <article class="paper-card">
-      <div class="paper-title">
-        Teaching Assistant, [add course here]
-      </div>
-    </article>
-  </div>
-</section>
+    <section class="teaching-block">
+      <h2 class="research-heading">Teaching Philosophy</h2>
 
-<section class="teaching-block">
-  <h2 class="research-heading">Teaching Philosophy</h2>
+      <article class="paper-card">
+        <div class="philosophy-preview" id="philosophy-text">
+          <div class="philosophy-text">
+            <p>
+              I was fortunate to meet several professors during my Ph.D. training who had a profound impact on me. Some of them were already highly respected economists in the profession, yet they never treated teaching as a secondary responsibility. They brought remarkable energy and intellectual curiosity into the classroom, and their example shaped my own view of what it means to be an educator.
+            </p>
 
-  <article class="paper-card">
-    <details class="paper-abstract">
-      <summary>Teaching Philosophy Statement</summary>
+            <p>
+              When I first had the opportunity to teach, I set a simple goal for myself: no matter how busy my week might be, the moment I step into the classroom, I must be fully prepared, professional, and genuinely committed to my students. I want every class to be a place where students actively participate rather than passively listen.
+            </p>
 
-      <div class="philosophy-text">
-        <p>
-          I was fortunate to meet several professors during my Ph.D. training who had a profound impact on me. Some of them were already highly respected economists in the profession, yet they never treated teaching as a secondary responsibility. They brought remarkable energy and intellectual curiosity into the classroom, and their example shaped my own view of what it means to be an educator.
-        </p>
+            <p>
+              My goal is not simply to teach students how to apply formulas mechanically. More importantly, I want them to learn how economists think. Before arriving at an answer, I encourage students to explore different approaches, identify the key economic intuition, and recognize common pitfalls in reasoning. A correct answer, by itself, is often the least interesting part of the learning process. What matters more is understanding how to approach a problem and apply economic reasoning beyond the classroom.
+            </p>
 
-        <p>
-          When I first had the opportunity to teach, I set a simple goal for myself: no matter how busy my week might be, the moment I step into the classroom, I must be fully prepared, professional, and genuinely committed to my students. I want every class to be a place where students actively participate rather than passively listen.
-        </p>
+            <p>
+              I particularly enjoy students who question assumptions and refuse to move on when there is a step in a derivation they do not fully understand. They should feel comfortable defending their views, debating alternative perspectives, and engaging critically with the material rather than acting as passive recipients of knowledge.
+            </p>
 
-        <p>
-          My goal is not simply to teach students how to apply formulas mechanically. More importantly, I want them to learn how economists think. Before arriving at an answer, I encourage students to explore different approaches, identify the key economic intuition, and recognize common pitfalls in reasoning. A correct answer, by itself, is often the least interesting part of the learning process. What matters more is understanding how to approach a problem and apply economic reasoning beyond the classroom.
-        </p>
+            <p>
+              As the saying goes, it is better to teach someone how to fish than simply give them a fish. That idea has always been at the core of my teaching philosophy. You never know whether one of the students sitting in front of you today will become an economist five or ten years from now. Being part of that journey is one of the most rewarding aspects of teaching.
+            </p>
+          </div>
+        </div>
 
-        <p>
-          I particularly enjoy students who question assumptions and refuse to move on when there is a step in a derivation they do not fully understand. They should feel comfortable defending their views, debating alternative perspectives, and engaging critically with the material rather than acting as passive recipients of knowledge.
-        </p>
-
-        <p>
-          As the saying goes, it is better to teach someone how to fish than simply give them a fish. That idea has always been at the core of my teaching philosophy. You never know whether one of the students sitting in front of you today will become an economist five or ten years from now. Being part of that journey is one of the most rewarding aspects of teaching.
-        </p>
-      </div>
-    </details>
-  </article>
-</section>
-
-
+        <button class="read-more-btn" id="read-more-btn" type="button">
+          Read More
+        </button>
+      </article>
+    </section>
   </main>
 
   <script>
     window.addEventListener("scroll", function () {
       const nav = document.querySelector(".topnav");
-
       if (!nav) return;
 
       if (window.scrollY > 1) {
@@ -109,16 +103,12 @@
 
     function updateThemeButton() {
       if (!toggleBtn) return;
-
       const isDark = document.body.classList.contains("dark-mode");
-
       toggleBtn.textContent = isDark ? "☾" : "☀";
       toggleBtn.setAttribute("aria-pressed", String(isDark));
     }
 
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
+    if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark-mode");
     }
 
@@ -127,19 +117,26 @@
     if (toggleBtn) {
       toggleBtn.addEventListener("click", function () {
         document.body.classList.toggle("dark-mode");
-
-        const isDark = document.body.classList.contains("dark-mode");
-
         localStorage.setItem(
           "theme",
-          isDark ? "dark" : "light"
+          document.body.classList.contains("dark-mode") ? "dark" : "light"
         );
-
         updateThemeButton();
       });
     }
-  </script>
 
+    const philosophy = document.getElementById("philosophy-text");
+    const readMoreBtn = document.getElementById("read-more-btn");
+
+    if (philosophy && readMoreBtn) {
+      readMoreBtn.addEventListener("click", function () {
+        philosophy.classList.toggle("expanded");
+        readMoreBtn.textContent = philosophy.classList.contains("expanded")
+          ? "Show Less"
+          : "Read More";
+      });
+    }
+  </script>
 </body>
 </html>
 
