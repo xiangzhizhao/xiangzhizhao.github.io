@@ -30,7 +30,7 @@
         <a class="navlink" href="research.html">Research</a>
         <a class="navlink" href="teaching.html">Teaching</a>
         <a class="navlink" href="cv.html">CV</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">☀</button>
       </nav>
     </div>
   </header>
@@ -82,12 +82,25 @@
 
     const toggleBtn = document.getElementById("theme-toggle");
 
-    if (toggleBtn) {
-      toggleBtn.addEventListener("click", function () {
-        document.body.classList.toggle("dark-mode");
-        toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "🌙" : "☀";
-      });
+    function updateThemeButton() {
+      const isDark = document.body.classList.contains("dark-mode");
+      toggleBtn.textContent = isDark ? "🌙" : "☀";
+      toggleBtn.setAttribute("aria-pressed", String(isDark));
     }
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+
+    updateThemeButton();
+
+    toggleBtn.addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      updateThemeButton();
+    });
   </script>
 </body>
 </html>
