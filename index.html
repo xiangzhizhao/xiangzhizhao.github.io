@@ -14,23 +14,23 @@
       <div class="brand">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="1.2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7 4v2"/>
-          <path d="M12 4v2"/>
-          <path d="M17 4v2"/>
-          <path d="M5.5 9h11v4.5a4.5 4.5 0 0 1-4.5 4.5H10a4.5 4.5 0 0 1-4.5-4.5V9z"/>
-          <path d="M16.5 10h1a1.8 1.8 0 0 1 0 3.6h-1"/>
-          <path d="M6.5 19.5h10.5"/>
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 4v2"></path>
+          <path d="M12 4v2"></path>
+          <path d="M17 4v2"></path>
+          <path d="M5.5 9h11v4.5a4.5 4.5 0 0 1-4.5 4.5H10a4.5 4.5 0 0 1-4.5-4.5V9z"></path>
+          <path d="M16.5 10h1a1.8 1.8 0 0 1 0 3.6h-1"></path>
+          <path d="M6.5 19.5h10.5"></path>
         </svg>
         <span>Xiangzhi Zhao</span>
       </div>
 
-      <nav class="navlinks">
+      <nav class="navlinks" aria-label="Primary">
         <a class="navlink active" href="index.html">Home</a>
         <a class="navlink" href="research.html">Research</a>
         <a class="navlink" href="teaching.html">Teaching</a>
         <a class="navlink" href="cv.html">CV</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">☀</button>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">☀</button>
       </nav>
     </div>
   </header>
@@ -48,23 +48,26 @@
           Pronunciation: Shee-ahng-jir
         </div>
 
-        <div class="social-links">
+        <div class="social-links" aria-label="Social links">
           <a href="https://orcid.org/0009-0001-5865-4096"
              target="_blank"
-             rel="noopener noreferrer">
+             rel="noopener noreferrer"
+             aria-label="ORCID profile">
             <img src="ORCID.svg" alt="ORCID">
           </a>
 
           <a href="https://github.com/xiangzhizhao"
              target="_blank"
-             rel="noopener noreferrer">
-            <img src="github.svg" alt="GitHub">
+             rel="noopener noreferrer"
+             aria-label="GitHub profile">
+            <img src="github.svg" alt="GitHub" class="social-icon github-icon">
           </a>
 
           <a href="https://x.com/XZ7035836496867"
              target="_blank"
-             rel="noopener noreferrer">
-            <img src="X.svg" alt="X">
+             rel="noopener noreferrer"
+             aria-label="X profile">
+            <img src="X.svg" alt="X" class="social-icon x-icon">
           </a>
         </div>
       </div>
