@@ -30,6 +30,7 @@
         <a class="navlink" href="research.html">Research</a>
         <a class="navlink" href="teaching.html">Teaching</a>
         <a class="navlink" href="cv.html">CV</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
       </nav>
     </div>
   </header>
@@ -78,6 +79,15 @@
         nav.classList.remove("scrolled");
       }
     });
+
+    const toggleBtn = document.getElementById("theme-toggle");
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "🌙" : "☀";
+      });
+    }
   </script>
 </body>
 </html>
