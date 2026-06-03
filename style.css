@@ -112,12 +112,13 @@ a:hover {
 
 .title {
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: 1px;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-weight: 700;
-  margin: 10px 0 36px;
-  color: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.6rem, 7vw, 5.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #16324f;
+  margin: 36px 0 56px;
 }
 
 .welcome {
