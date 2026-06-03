@@ -286,8 +286,6 @@ body.dark-mode .photo-placeholder {
 }
 
 .social-links img {
-  width: 24px;
-  height: 24px;
   object-fit: contain;
   display: block;
   transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
@@ -296,6 +294,25 @@ body.dark-mode .photo-placeholder {
 .social-links img:hover {
   opacity: 0.85;
   transform: translateY(-1px);
+}
+
+/* ORCID */
+.social-links a[href*="orcid.org"] img {
+  width: 20px;
+  height: 20px;
+}
+
+/* GitHub */
+.social-links a[href*="github.com"] img {
+  width: 20px;
+  height: 20px;
+}
+
+/* X */
+.social-links a[href*="x.com"] img,
+.social-links a[href*="twitter.com"] img {
+  width: 18px;
+  height: 18px;
 }
 
 /* Social icon theme fixes */
