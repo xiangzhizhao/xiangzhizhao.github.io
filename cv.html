@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -23,33 +24,86 @@
         <span>Xiangzhi Zhao</span>
       </div>
 
-      <nav class="navlinks">
-        <a class="navlink" href="index.html">Home</a>
-        <a class="navlink" href="research.html">Research</a>
-        <a class="navlink" href="teaching.html">Teaching</a>
-        <a class="navlink active" href="cv.html">CV</a>
-      </nav>
-    </div>
+```
+  <nav class="navlinks">
+    <a class="navlink" href="index.html">Home</a>
+    <a class="navlink" href="research.html">Research</a>
+    <a class="navlink" href="teaching.html">Teaching</a>
+    <a class="navlink active" href="cv.html">CV</a>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">☀</button>
+  </nav>
+</div>
+```
+
   </header>
 
   <main class="page">
     <div class="paper-card">
-      <div class="paper-title">CV</div>
-      <div class="paper-links">
-        <a href="Xiangzhi_Zhao_CV.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+      <div class="paper-title">
+        Curriculum Vitae
       </div>
-    </div>
+
+```
+  <div class="paper-links">
+    <a href="Xiangzhi_Zhao_CV.pdf"
+       target="_blank"
+       rel="noopener noreferrer">
+      Download CV (PDF)
+    </a>
+  </div>
+</div>
+```
+
   </main>
 
   <script>
     window.addEventListener("scroll", function () {
       const nav = document.querySelector(".topnav");
+
+      if (!nav) return;
+
       if (window.scrollY > 1) {
         nav.classList.add("scrolled");
       } else {
         nav.classList.remove("scrolled");
       }
     });
+
+    const toggleBtn = document.getElementById("theme-toggle");
+
+    function updateThemeButton() {
+      if (!toggleBtn) return;
+
+      const isDark = document.body.classList.contains("dark-mode");
+
+      toggleBtn.textContent = isDark ? "☾" : "☀";
+      toggleBtn.setAttribute("aria-pressed", String(isDark));
+    }
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+
+    updateThemeButton();
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+
+        const isDark = document.body.classList.contains("dark-mode");
+
+        localStorage.setItem(
+          "theme",
+          isDark ? "dark" : "light"
+        );
+
+        updateThemeButton();
+      });
+    }
   </script>
+
 </body>
 </html>
+
