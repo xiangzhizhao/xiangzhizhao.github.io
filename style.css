@@ -116,17 +116,17 @@ body.dark-mode .brand {
 }
 
 .speaker-icon {
-  margin-left: 3px;
+  margin-left: 4px;
   cursor: pointer;
-  vertical-align: middle;
-  opacity: 0.75;
-  transition: all 0.2s ease;
+  vertical-align: -1px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
 }
 
 .speaker-icon:hover {
   opacity: 1;
-  transform: scale(1.05);
 }
+
 .brand svg {
   color: var(--accent);
   flex-shrink: 0;
