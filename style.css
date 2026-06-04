@@ -130,9 +130,12 @@ body.dark-mode .brand {
   transition: color 0.2s ease;
 }
 
+
 .navlink.active {
   color: var(--accent);
   font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
 }
 
 body.dark-mode .navlink {
