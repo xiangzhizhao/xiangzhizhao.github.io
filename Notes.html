@@ -26,24 +26,24 @@
       line-height: 1;
       letter-spacing: -0.03em;
       margin: 0 0 12px;
-      color: #102033;
+      color: var(--text);
     }
 
     .notes-divider {
       width: 58px;
       height: 2px;
-      background: rgba(79, 134, 247, 0.16);
+      background: rgba(42, 111, 151, 0.18);
       margin: 0 0 14px;
     }
 
-   .notes-intro {
-    max-width: 760px;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.08rem;
-    line-height: 1.72;
-    color: #102033;
-    margin: 0;
-}
+    .notes-intro {
+      max-width: 760px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.08rem;
+      line-height: 1.72;
+      color: var(--text);
+      margin: 0;
+    }
 
     .notes-section {
       margin-top: 28px;
@@ -56,7 +56,7 @@
       gap: 16px;
       margin-bottom: 8px;
       padding-bottom: 6px;
-      border-bottom: 1px solid rgba(219, 228, 238, 0.92);
+      border-bottom: 1px solid var(--line);
     }
 
     .notes-section-header h2 {
@@ -65,7 +65,7 @@
       font-size: 0.98rem;
       line-height: 1;
       letter-spacing: 0.16em;
-      color: #102033;
+      color: var(--text);
       text-transform: uppercase;
       font-weight: 600;
     }
@@ -74,7 +74,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: #7f8b99;
+      color: var(--muted);
       text-decoration: none;
       font-size: 0.88rem;
       white-space: nowrap;
@@ -85,16 +85,16 @@
       content: "→";
       font-size: 0.98rem;
       line-height: 1;
-      color: #7f8b99;
+      color: var(--muted);
       transition: transform 0.18s ease, color 0.18s ease;
     }
 
     .section-more:hover {
-      color: #102033;
+      color: var(--text);
     }
 
     .section-more:hover::after {
-      color: #102033;
+      color: var(--text);
       transform: translateX(2px);
     }
 
@@ -110,13 +110,13 @@
       gap: 14px;
       align-items: center;
       padding: 11px 0;
-      border-bottom: 1px solid rgba(219, 228, 238, 0.55);
+      border-bottom: 1px solid var(--line);
     }
 
     .notes-date {
       font-size: 0.84rem;
       letter-spacing: 0.02em;
-      color: #8a95a4;
+      color: var(--muted);
       white-space: nowrap;
     }
 
@@ -129,9 +129,9 @@
       font-size: clamp(1.02rem, 1.7vw, 1.22rem);
       line-height: 1.25;
       letter-spacing: -0.015em;
-      color: #102033;
+      color: var(--text);
       text-decoration: none;
-      transition: opacity 0.18s ease, transform 0.18s ease;
+      transition: opacity 0.18s ease, transform 0.18s ease, color 0.18s ease;
     }
 
     .notes-link:hover {
@@ -142,13 +142,17 @@
     .notes-footer {
       margin-top: 42px;
       padding-top: 14px;
-      border-top: 1px solid rgba(219, 228, 238, 0.92);
+      border-top: 1px solid var(--line);
       display: flex;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
-      color: #8a95a4;
+      color: var(--muted);
       font-size: 0.88rem;
+    }
+
+    body.dark-mode .notes-divider {
+      background: rgba(124, 196, 255, 0.45);
     }
 
     @media (max-width: 720px) {
@@ -172,48 +176,6 @@
         align-items: flex-start;
       }
     }
-    body.dark-mode {
-  background: #0d1117;
-  color: #e6edf7;
-}
-
-body.dark-mode .notes-title,
-body.dark-mode .notes-intro,
-body.dark-mode .notes-link,
-body.dark-mode .notes-section-header h2 {
-  color: #e6edf7 !important;
-}
-
-body.dark-mode .notes-date {
-  color: #aeb8c4 !important;
-}
-
-body.dark-mode .section-more,
-body.dark-mode .section-more::after {
-  color: #c7d0dc !important;
-}
-
-body.dark-mode .section-more:hover,
-body.dark-mode .section-more:hover::after {
-  color: #ffffff !important;
-}
-
-body.dark-mode .notes-divider {
-  background: rgba(120, 170, 255, 0.45) !important;
-}
-
-body.dark-mode .notes-section-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-}
-
-body.dark-mode .notes-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-
-body.dark-mode .notes-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
-  color: #aeb8c4 !important;
-}
   </style>
 </head>
 <body>
@@ -249,9 +211,8 @@ body.dark-mode .notes-footer {
       <h1 class="notes-title">Notes</h1>
       <div class="notes-divider"></div>
       <p class="notes-intro">
-        Since 2017, I have maintained a Chinese-language website featuring travel notes and personal essays. 
+        Since 2017, I have maintained a Chinese-language website featuring travel notes and personal essays.
         While separate from my academic research, these writings reflect a broader curiosity about people, places, and the world.
-
       </p>
     </section>
 
@@ -346,23 +307,21 @@ body.dark-mode .notes-footer {
     }
 
     const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark") {
-  document.body.classList.add("dark-mode");
-  document.documentElement.classList.add("dark-mode");
-}
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+      document.documentElement.classList.add("dark-mode");
+    }
 
     updateThemeButton();
 
     if (toggleBtn) {
       toggleBtn.addEventListener("click", function () {
-  const isDark = document.body.classList.toggle("dark-mode");
-  document.documentElement.classList.toggle("dark-mode", isDark);
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-  updateThemeButton();
-});
+        const isDark = document.body.classList.toggle("dark-mode");
+        document.documentElement.classList.toggle("dark-mode", isDark);
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateThemeButton();
+      });
     }
   </script>
 </body>
 </html>
-
-
