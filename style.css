@@ -436,14 +436,14 @@ body.dark-mode .site-footer {
   gap: 56px;
   font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   text-align: left;
 }
 
 .footer-heading {
   color: var(--text);
-  font-size: 1rem;
+  font-size: 0.92rem;
   margin-bottom: 6px;
   font-weight: 500;
   font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
@@ -485,7 +485,7 @@ body.dark-mode .site-footer {
   text-align: center;
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--muted);
   letter-spacing: 0.01em;
 }
