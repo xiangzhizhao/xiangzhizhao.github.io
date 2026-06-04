@@ -266,40 +266,44 @@ body.dark-mode .photo-placeholder {
   margin: 60px auto;
 }
 
-.notes-intro {
-  color: var(--muted);
+.notes-directory .notes-intro {
+  color: var(--muted) !important;
   margin-bottom: 40px;
   font-size: 1.05rem;
 }
 
-.notes-group {
+.notes-directory .notes-group {
   margin-bottom: 50px;
 }
 
-.notes-group h2 {
+.notes-directory .notes-group h2 {
   font-size: 1.5rem;
   margin-bottom: 16px;
-  color: var(--text);
+  color: var(--text) !important;
 }
 
-.notes-group ul {
+.notes-directory .notes-group ul {
   list-style: none;
   padding-left: 0;
 }
 
-.notes-group li {
+.notes-directory .notes-group li {
   margin-bottom: 12px;
 }
 
-.notes-group a {
-  color: var(--text);
+.notes-directory .notes-group a {
+  color: var(--text) !important;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: all 0.2s ease;
 }
 
-.notes-group a:hover {
-  border-bottom-color: var(--accent);
+.notes-directory .notes-group a:hover {
+  border-bottom-color: var(--accent) !important;
+}
+
+body.dark-mode .title {
+  color: var(--text) !important;
 }
 .social-links {
   margin-top: 12px;
