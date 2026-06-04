@@ -518,22 +518,24 @@ body.dark-mode .research-heading {
 }
 
 .paper-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 22px 24px;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  padding: 16px 0 22px 0;
+
+  border-bottom: 1px solid var(--line);
 }
 
 .paper-card:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--card-shadow-hover);
+  transform: none;
+  box-shadow: none;
 }
 
 body.dark-mode .paper-card {
-  background: var(--surface);
-  border-color: #2c2c2c;
+  background: transparent;
+  border-color: var(--line);
 }
 
 .paper-title {
