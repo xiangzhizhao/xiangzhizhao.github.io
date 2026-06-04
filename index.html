@@ -53,6 +53,51 @@
     .contact-item.email {
       color: var(--text);
     }
+
+    .site-footer {
+      margin-top: 64px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(17, 24, 39, 0.12);
+    }
+
+    body.dark-mode .site-footer {
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-content {
+      max-width: 680px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 72px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .footer-heading {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      font-size: 0.98rem;
+    }
+
+    .footer-email a {
+      color: var(--link);
+    }
+
+    .footer-email a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -93,42 +138,36 @@
         </div>
 
         <div class="photo-caption">
-  Pronunciation: Shee-ahng-jir
+          Pronunciation: Shee-ahng-jir
+          <svg class="speaker-icon"
+               onclick="document.getElementById('nameAudio').play()"
+               xmlns="http://www.w3.org/2000/svg"
+               width="14"
+               height="14"
+               viewBox="0 0 16 16"
+               fill="none">
+            <path
+              d="M2.5 6.5V9.5H4.8L8 12V4L4.8 6.5H2.5Z"
+              stroke="#C8CAD6"
+              stroke-width="1.2"
+              stroke-linejoin="round"/>
+            <path
+              d="M10.1 5.6C10.7 6.1 11 6.9 11 8C11 9.1 10.7 9.9 10.1 10.4"
+              stroke="#A9D4FF"
+              stroke-width="1.2"
+              stroke-linecap="round"/>
+            <path
+              d="M11.7 4.2C12.7 5.1 13.2 6.3 13.2 8C13.2 9.7 12.7 10.9 11.7 11.8"
+              stroke="#A9D4FF"
+              stroke-width="1.2"
+              stroke-linecap="round"/>
+          </svg>
 
-  <svg class="speaker-icon"
-       onclick="document.getElementById('nameAudio').play()"
-       xmlns="http://www.w3.org/2000/svg"
-       width="14"
-       height="14"
-       viewBox="0 0 16 16"
-       fill="none">
+          <audio id="nameAudio">
+            <source src="xiangzhi.mp3" type="audio/mpeg">
+          </audio>
+        </div>
 
-    <path
-      d="M2.5 6.5V9.5H4.8L8 12V4L4.8 6.5H2.5Z"
-      stroke="#C8CAD6"
-      stroke-width="1.2"
-      stroke-linejoin="round"/>
-
-    <path
-      d="M10.1 5.6C10.7 6.1 11 6.9 11 8C11 9.1 10.7 9.9 10.1 10.4"
-      stroke="#A9D4FF"
-      stroke-width="1.2"
-      stroke-linecap="round"/>
-
-    <path
-      d="M11.7 4.2C12.7 5.1 13.2 6.3 13.2 8C13.2 9.7 12.7 10.9 11.7 11.8"
-      stroke="#A9D4FF"
-      stroke-width="1.2"
-      stroke-linecap="round"/>
-  </svg>
-
-  <audio id="nameAudio">
-    <source src="xiangzhi.mp3" type="audio/mpeg">
-  </audio>
-</div>
-
-
-        
         <div class="social-links" aria-label="Social links">
           <a href="https://orcid.org/0009-0001-5865-4096"
              target="_blank"
@@ -153,11 +192,11 @@
         </div>
 
         <div class="contact-block" aria-label="Contact information">
-  <a class="contact-item email" href="mailto:xz115@iu.edu" aria-label="Email Xiangzhi Zhao">
-    <img class="contact-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
-    <span class="contact-text">xz115@iu.edu</span>
-  </a>
-</div>
+          <a class="contact-item email" href="mailto:xz115@iu.edu" aria-label="Email Xiangzhi Zhao">
+            <img class="contact-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
+            <span class="contact-text">xz115@iu.edu</span>
+          </a>
+        </div>
       </div>
 
       <div class="intro">
@@ -181,6 +220,25 @@
         </p>
       </div>
     </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-office">
+          <div class="footer-heading">Office</div>
+          <div>
+            Department of Economics<br>
+            Indiana University Bloomington<br>
+            Wylie Hall 503<br>
+            Bloomington, IN 47405
+          </div>
+        </div>
+
+        <div class="footer-email">
+          <div class="footer-heading">Email</div>
+          <a href="mailto:xz115@iu.edu">xz115@iu.edu</a>
+        </div>
+      </div>
+    </footer>
   </main>
 
   <script>
