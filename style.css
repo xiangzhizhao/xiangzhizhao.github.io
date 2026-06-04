@@ -501,11 +501,11 @@ body.dark-mode .site-footer {
 
 .research-heading {
   font-family: "Cormorant Garamond", serif;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   color: #16324f;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 body.dark-mode .research-heading {
