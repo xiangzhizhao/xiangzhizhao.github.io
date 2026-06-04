@@ -109,6 +109,11 @@ body.dark-mode .brand {
   color: #f5f5f5;
 }
 
+.contact-text {
+    font-family: "EB Garamond", serif;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
 .brand svg {
   color: var(--accent);
   flex-shrink: 0;
