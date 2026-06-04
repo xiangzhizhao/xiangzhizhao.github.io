@@ -22,7 +22,9 @@
     .footer-content {
       max-width: 720px;
       margin: 0 auto;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 72px;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--muted);
       font-size: 0.95rem;
@@ -36,7 +38,7 @@
     }
 
     .footer-email {
-      margin-top: 6px;
+      margin-top: 0;
     }
 
     .footer-email a {
@@ -48,12 +50,25 @@
     }
 
     .footer-quote {
+      grid-column: 1 / -1;
       margin-top: 22px;
+      text-align: center;
       font-family: "Cormorant Garamond", serif;
       font-style: italic;
       font-size: 1rem;
       color: var(--muted);
       letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 800px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .footer-quote {
+        grid-column: auto;
+      }
     }
   </style>
 </head>
@@ -174,8 +189,8 @@
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-dept">
-          Department of Economics, Indiana University Bloomington 
-          Wylie Hall
+          Department of Economics, Indiana University Bloomington <br>
+          Wylie Hall <br>
           Bloomington, IN 47405
         </div>
 
