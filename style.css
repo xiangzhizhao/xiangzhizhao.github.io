@@ -615,45 +615,50 @@ body.dark-mode .philosophy-preview::after {
     margin-bottom: 8px;
   }
 
-  /* =========================
-   Dark Mode: Notes Page
-   ========================= */
+body.dark-mode {
+  background: #0d1117;
+  color: #e6edf7;
+}
 
 body.dark-mode .notes-title,
 body.dark-mode .notes-intro,
 body.dark-mode .notes-link,
 body.dark-mode .notes-section-header h2 {
-    color: #e6edf7;
+  color: #e6edf7 !important;
 }
 
 body.dark-mode .notes-date {
-    color: #b7c0cb;
+  color: #aeb8c4 !important;
 }
 
 body.dark-mode .section-more,
 body.dark-mode .section-more::after {
-    color: #c7d0dc;
+  color: #c7d0dc !important;
 }
 
 body.dark-mode .section-more:hover,
 body.dark-mode .section-more:hover::after {
-    color: #ffffff;
-}
-
-body.dark-mode .notes-section-header {
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-}
-
-body.dark-mode .notes-item {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-body.dark-mode .notes-footer {
-    border-top: 1px solid rgba(255,255,255,0.12);
-    color: #b7c0cb;
+  color: #ffffff !important;
 }
 
 body.dark-mode .notes-divider {
-    background: rgba(120,170,255,0.45);
+  background: rgba(120, 170, 255, 0.45) !important;
+}
+
+body.dark-mode .notes-section-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+body.dark-mode .notes-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .notes-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #aeb8c4 !important;
+}
+
+body.dark-mode .notes-link:hover {
+  opacity: 0.9;
 }
 }
