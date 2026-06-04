@@ -92,9 +92,44 @@
           <img src="XZ_profile.jpg" alt="Xiangzhi Zhao">
         </div>
 
-        <div class="photo-caption">
-          Pronunciation: Shee-ahng-jir
-        </div>
+       <div class="photo-caption">
+  Pronunciation: Shee-ahng-jir
+
+  <button class="pronunciation-btn"
+          onclick="document.getElementById('nameAudio').play()"
+          aria-label="Play pronunciation">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="14"
+         height="14"
+         viewBox="0 0 16 16"
+         fill="none">
+
+      <path
+        d="M2.5 6.5V9.5H4.8L8 12V4L4.8 6.5H2.5Z"
+        stroke="#C8CAD6"
+        stroke-width="1.2"
+        stroke-linejoin="round"/>
+
+      <path
+        d="M10.1 5.6C10.7 6.1 11 6.9 11 8C11 9.1 10.7 9.9 10.1 10.4"
+        stroke="#A9D4FF"
+        stroke-width="1.2"
+        stroke-linecap="round"/>
+
+      <path
+        d="M11.7 4.2C12.7 5.1 13.2 6.3 13.2 8C13.2 9.7 12.7 10.9 11.7 11.8"
+        stroke="#D7EAFE"
+        stroke-width="1.2"
+        stroke-linecap="round"/>
+    </svg>
+
+  </button>
+
+  <audio id="nameAudio">
+    <source src="xiangzhi.mp3" type="audio/mpeg">
+  </audio>
+</div>
 
         <div class="social-links" aria-label="Social links">
           <a href="https://orcid.org/0009-0001-5865-4096"
