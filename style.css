@@ -114,6 +114,25 @@ body.dark-mode .brand {
     font-size: 1rem;
     letter-spacing: 0.02em;
 }
+.pronunciation-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 4px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.pronunciation-btn svg {
+  opacity: 0.85;
+  transition: opacity 0.2s ease,
+              transform 0.2s ease;
+}
+
+.pronunciation-btn:hover svg {
+  opacity: 1;
+  transform: scale(1.08);
+}
 .brand svg {
   color: var(--accent);
   flex-shrink: 0;
