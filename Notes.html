@@ -172,6 +172,48 @@
         align-items: flex-start;
       }
     }
+    body.dark-mode {
+  background: #0d1117;
+  color: #e6edf7;
+}
+
+body.dark-mode .notes-title,
+body.dark-mode .notes-intro,
+body.dark-mode .notes-link,
+body.dark-mode .notes-section-header h2 {
+  color: #e6edf7 !important;
+}
+
+body.dark-mode .notes-date {
+  color: #aeb8c4 !important;
+}
+
+body.dark-mode .section-more,
+body.dark-mode .section-more::after {
+  color: #c7d0dc !important;
+}
+
+body.dark-mode .section-more:hover,
+body.dark-mode .section-more:hover::after {
+  color: #ffffff !important;
+}
+
+body.dark-mode .notes-divider {
+  background: rgba(120, 170, 255, 0.45) !important;
+}
+
+body.dark-mode .notes-section-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+body.dark-mode .notes-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .notes-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #aeb8c4 !important;
+}
   </style>
 </head>
 <body>
@@ -304,19 +346,20 @@
     }
 
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark-mode");
-    }
+if (savedTheme === "dark") {
+  document.body.classList.add("dark-mode");
+  document.documentElement.classList.add("dark-mode");
+}
 
     updateThemeButton();
 
     if (toggleBtn) {
       toggleBtn.addEventListener("click", function () {
-        document.body.classList.toggle("dark-mode");
-        const isDark = document.body.classList.contains("dark-mode");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-        updateThemeButton();
-      });
+  const isDark = document.body.classList.toggle("dark-mode");
+  document.documentElement.classList.toggle("dark-mode", isDark);
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+  updateThemeButton();
+});
     }
   </script>
 </body>
