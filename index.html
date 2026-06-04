@@ -7,6 +7,53 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    .contact-block {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(17, 24, 39, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 260px;
+    }
+
+    body.dark-mode .contact-block {
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+
+    .contact-item:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .contact-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .contact-text {
+      line-height: 1.35;
+    }
+
+    .contact-item.email {
+      color: var(--text);
+    }
+  </style>
 </head>
 <body>
   <header class="topnav">
@@ -30,7 +77,7 @@
         <a class="navlink" href="research.html">Research</a>
         <a class="navlink" href="teaching.html">Teaching</a>
         <a class="navlink" href="cv.html">CV</a>
-        <a class="navlink" href="Notes.html">Notes</a>
+        <a class="navlink" href="notes.html">Notes</a>
         <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">☀</button>
       </nav>
     </div>
@@ -70,6 +117,18 @@
              aria-label="X profile">
             <img src="X.svg" alt="X" class="social-icon x-icon">
           </a>
+        </div>
+
+        <div class="contact-block" aria-label="Contact information">
+          <a class="contact-item email" href="mailto:zhaoxia@iu.edu" aria-label="Email Xiangzhi Zhao">
+            <img class="contact-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
+            <span class="contact-text">zhaoxia@iu.edu</span>
+          </a>
+
+          <div class="contact-item" aria-label="Location">
+            <img class="contact-icon" src="sample_gates.svg" alt="" aria-hidden="true">
+            <span class="contact-text">Bloomington, IN</span>
+          </div>
         </div>
       </div>
 
