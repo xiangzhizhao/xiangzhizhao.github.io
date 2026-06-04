@@ -624,9 +624,10 @@ body.dark-mode .philosophy-text {
 .philosophy-text p {
   margin: 0 0 14px;
 }
+
 .teaching-page .paper-card {
   border-bottom: none;
-  padding: 12px 0;
+  padding: 4px 0;
 }
 
 .teaching-page .paper-list {
@@ -635,8 +636,9 @@ body.dark-mode .philosophy-text {
 }
 
 .teaching-page .paper-card + .paper-card {
-  margin-top: 10px;
+  margin-top: 0;
 }
+
 /* Teaching philosophy preview */
 .philosophy-preview {
   max-height: 8.5em;
