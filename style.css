@@ -118,7 +118,7 @@ body.dark-mode .brand {
 .speaker-icon {
   margin-left: 4px;
   cursor: pointer;
-  vertical-align: -1px;
+  vertical-align: -3px;
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }
