@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" fill="none">
+  <g stroke="#222222" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- left outer base -->
+    <path d="M80 520H180" />
+    <path d="M95 500H165" />
+
+    <!-- right outer base -->
+    <path d="M1020 520H1120" />
+    <path d="M1035 500H1105" />
+
+    <!-- left wing -->
+    <path d="M235 355H450" />
+    <path d="M235 375H450" />
+    <path d="M235 355V515" />
+    <path d="M450 355V515" />
+    <path d="M250 335H440" />
+    <path d="M260 320H430" />
+    <path d="M240 395H435" />
+    <path d="M240 415H435" />
+
+    <!-- left arch -->
+    <path d="M285 515V435" />
+    <path d="M285 435C285 392 320 355 365 355C410 355 445 392 445 435V515" />
+    <path d="M300 515H430" />
+    <path d="M300 398C300 381 315 365 335 365C355 365 370 381 370 398" />
+
+    <!-- left tower base -->
+    <path d="M465 280H565V515H465Z" />
+    <path d="M482 515V260" />
+    <path d="M548 515V260" />
+    <path d="M472 260H556" />
+    <path d="M478 240H550" />
+    <path d="M485 220H543" />
+    <path d="M497 205H531" />
+    <path d="M513 190V205" />
+    <path d="M505 197H521" />
+    <path d="M513 160V190" />
+
+    <!-- left tower interior arch -->
+    <path d="M507 420V315" />
+    <path d="M507 315C507 292 517 276 525 276C533 276 543 292 543 315V420" />
+
+    <!-- left tower ornament -->
+    <path d="M515 375V395" />
+    <path d="M507 385H523" />
+    <path d="M507 405H523L519 440H511Z" />
+
+    <!-- right tower base -->
+    <path d="M635 280H735V515H635Z" />
+    <path d="M652 515V260" />
+    <path d="M718 515V260" />
+    <path d="M642 260H726" />
+    <path d="M648 240H720" />
+    <path d="M655 220H713" />
+    <path d="M667 205H701" />
+    <path d="M683 190V205" />
+    <path d="M675 197H691" />
+    <path d="M683 160V190" />
+
+    <!-- right tower interior arch -->
+    <path d="M677 420V315" />
+    <path d="M677 315C677 292 687 276 695 276C703 276 713 292 713 315V420" />
+
+    <!-- right tower ornament -->
+    <path d="M685 375V395" />
+    <path d="M677 385H693" />
+    <path d="M677 405H693L689 440H681Z" />
+
+    <!-- right wing -->
+    <path d="M750 355H965" />
+    <path d="M750 375H965" />
+    <path d="M750 355V515" />
+    <path d="M965 355V515" />
+    <path d="M760 335H950" />
+    <path d="M770 320H940" />
+    <path d="M760 395H955" />
+    <path d="M760 415H955" />
+
+    <!-- right arch -->
+    <path d="M755 515V435" />
+    <path d="M755 435C755 392 790 355 835 355C880 355 915 392 915 435V515" />
+    <path d="M770 515H900" />
+    <path d="M830 398C830 381 845 365 865 365C885 365 900 381 900 398" />
+  </g>
+</svg>
