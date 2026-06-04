@@ -597,8 +597,13 @@ body.dark-mode .paper-abstract p {
 }
 
 /* Teaching page */
-.teaching-page {
-  max-width: 980px;
+.teaching-page .paper-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 
 .teaching-block {
