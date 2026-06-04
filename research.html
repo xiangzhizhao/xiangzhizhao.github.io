@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research - Xiangzhi Zhao</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="topnav">
@@ -12,7 +14,7 @@
       <div class="brand">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="1.2"
-             stroke-linecap="round" stroke-linejoin="round">
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M7 4v2"/>
           <path d="M12 4v2"/>
           <path d="M17 4v2"/>
@@ -23,13 +25,13 @@
         <span>Xiangzhi Zhao</span>
       </div>
 
-      <nav class="navlinks">
-       <a class="navlink" href="index.html">About</a>
-<a class="navlink active" href="research.html">Research</a>
-<a class="navlink" href="teaching.html">Teaching</a>
-<a class="navlink" href="cv.html">CV</a>
-<a class="navlink" href="Notes.html">Notes</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">☀</button>
+      <nav class="navlinks" aria-label="Primary">
+        <a class="navlink" href="index.html">About</a>
+        <a class="navlink active" href="research.html">Research</a>
+        <a class="navlink" href="teaching.html">Teaching</a>
+        <a class="navlink" href="cv.html">CV</a>
+        <a class="navlink" href="Notes.html">Notes</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">☀</button>
       </nav>
     </div>
   </header>
@@ -109,6 +111,29 @@
         </article>
       </div>
     </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-office">
+          <div class="footer-heading">Office</div>
+          <div>
+            Department of Economics, IUB<br>
+            Wylie Hall<br>
+            Bloomington, IN 47405
+          </div>
+        </div>
+
+        <div class="footer-email">
+          <div class="footer-heading">Email</div>
+          <a class="footer-email-link" href="mailto:xz115@iu.edu">
+            <img class="footer-email-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
+            <span>xz115@iu.edu</span>
+          </a>
+        </div>
+
+        <div class="footer-quote">Little by little, one travels far.</div>
+      </div>
+    </footer>
   </main>
 
   <script>
@@ -150,4 +175,3 @@
   </script>
 </body>
 </html>
-
