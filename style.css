@@ -305,6 +305,24 @@ body.dark-mode .photo-placeholder {
 body.dark-mode .title {
   color: var(--text) !important;
 }
+body.dark-mode .notes-directory .notes-intro {
+  color: var(--muted) !important;
+}
+
+body.dark-mode .notes-directory .notes-group h2 {
+  color: var(--text) !important;
+}
+
+body.dark-mode .notes-directory .notes-group a {
+  color: var(--text) !important;
+}
+
+body.dark-mode .notes-directory .notes-group a:hover {
+  border-bottom-color: var(--accent) !important;
+}
+body.dark-mode .title {
+  color: var(--text) !important;
+}
 .social-links {
   margin-top: 12px;
   display: flex;
