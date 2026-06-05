@@ -492,7 +492,7 @@ body.dark-mode .site-footer {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 30px;
-  padding: 22px 22px 0 80px;
+  padding: 18px 18px 0 80px;
   align-items: start;
 }
 
