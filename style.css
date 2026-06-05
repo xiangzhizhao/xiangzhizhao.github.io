@@ -1091,3 +1091,175 @@ body.dark-mode .Notes-footer {
 body.dark-mode .Notes-link:hover {
   opacity: 0.9;
 }
+/* CV sidebar layout */
+.cv-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 24px 48px;
+  align-items: start;
+}
+
+.cv-sidebar {
+  position: sticky;
+  top: 92px;
+  align-self: start;
+  background: var(--card-bg, #f6f1e8);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.sidebar-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.sidebar-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.6rem;
+  line-height: 1;
+  margin: 0 0 10px;
+  color: var(--text-main, #163a73);
+}
+
+.sidebar-role,
+.sidebar-school {
+  font-family: "EB Garamond", serif;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  margin: 0;
+  color: var(--text-main, #163a73);
+  opacity: 0.9;
+}
+
+.sidebar-school {
+  margin-bottom: 24px;
+}
+
+.sidebar-section {
+  margin-top: 22px;
+}
+
+.sidebar-label {
+  font-family: "EB Garamond", serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  color: var(--text-main, #163a73);
+  opacity: 0.8;
+}
+
+.sidebar-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  line-height: 1.35;
+  color: var(--text-main, #163a73);
+  margin-bottom: 8px;
+}
+
+.sidebar-divider {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  margin: 14px 0 18px;
+}
+
+.sidebar-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem;
+  color: var(--text-main, #163a73);
+  text-decoration: none;
+}
+
+.sidebar-email-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar-socials {
+  display: flex;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.social-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: #111;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cv-main {
+  min-width: 0;
+}
+
+.cv-card {
+  min-height: 70vh;
+}
+
+.cv-content {
+  margin-top: 24px;
+}
+
+.cv-note {
+  font-family: "EB Garamond", serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-main, #163a73);
+}
+
+/* Optional: smoother theme variables if you already use them */
+body {
+  background: #f5efe7;
+}
+
+body.dark-mode .cv-sidebar,
+body.dark-mode .paper-card {
+  background: #1d1d1d;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .sidebar-label,
+body.dark-mode .sidebar-name,
+body.dark-mode .sidebar-role,
+body.dark-mode .sidebar-school,
+body.dark-mode .sidebar-text,
+body.dark-mode .sidebar-email,
+body.dark-mode .cv-note {
+  color: #f2e9dd;
+}
+
+body.dark-mode .social-link {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f2e9dd;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .cv-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-sidebar {
+    position: static;
+  }
+}
