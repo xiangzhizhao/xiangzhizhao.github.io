@@ -644,7 +644,7 @@ body.dark-mode .site-footer {
 
 .page-title {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 2.35rem;
+  font-size: 2rem;
   line-height: 1.05;
   margin: 0 0 8px;
   color: var(--text);
@@ -652,7 +652,7 @@ body.dark-mode .site-footer {
 }
 
 .title-accent {
-  width: 48px;
+  width: 36px;
   height: 3px;
   background: var(--accent);
   border-radius: 999px;
@@ -671,9 +671,9 @@ body.dark-mode .site-footer {
 
 .research-heading {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.45rem;
+  font-size: 1.25rem;
   line-height: 1.1;
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: #16324f;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -708,7 +708,7 @@ body.dark-mode .research-heading {
 
 .paper-title {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.08rem;
+  font-size: 1rem;
   line-height: 1.55;
   color: var(--text);
 }
@@ -761,7 +761,7 @@ body.dark-mode .paper-abstract p {
 }
 
 .journal {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--muted);
   font-weight: normal;
   margin-left: 6px;
