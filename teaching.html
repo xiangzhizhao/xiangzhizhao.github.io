@@ -1,113 +1,709 @@
-<main class="layout">
-  <aside class="sidebar">
-    <div class="profile-photo">
-      <img src="XZ_profile.jpg" alt="Xiangzhi Zhao">
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching - Xiangzhi Zhao</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <div class="sidebar-name">Xiangzhi Zhao</div>
-    <div class="sidebar-role">
-      PhD Student in Economics<br>
-      Indiana University Bloomington
-    </div>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --panel: #fbf8f3;
+      --text: #1b2c4d;
+      --muted: #6b7280;
+      --link: #4b6284;
+      --accent: #4b6284;
+      --border: rgba(17, 24, 39, 0.12);
+      --nav-bg: rgba(247, 244, 238, 0.92);
+      --nav-border: rgba(17, 24, 39, 0.06);
+      --shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    }
 
-    <div class="sidebar-section">
-      <div class="sidebar-label">Pronunciation</div>
-      <div class="pronunciation-row">
-        <span>Shee-ahng-jir</span>
-        <svg class="speaker-icon"
-             onclick="document.getElementById('nameAudio').play()"
-             xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 16 16"
-             fill="none"
-             aria-hidden="true">
-          <path d="M2.5 6.5V9.5H4.8L8 12V4L4.8 6.5H2.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-          <path d="M10.1 5.6C10.7 6.1 11 6.9 11 8C11 9.1 10.7 9.9 10.1 10.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M11.7 4.2C12.7 5.1 13.2 6.3 13.2 8C13.2 9.7 12.7 10.9 11.7 11.8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    body.dark-mode {
+      --bg: #111111;
+      --panel: #181818;
+      --text: #f2f2f2;
+      --muted: #a8a8a8;
+      --link: #8db4ff;
+      --accent: #8db4ff;
+      --border: rgba(255, 255, 255, 0.12);
+      --nav-bg: rgba(17, 17, 17, 0.94);
+      --nav-border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.2s ease, color 0.2s ease;
+      font-family: "EB Garamond", Georgia, serif;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--nav-border);
+      transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .topnav.scrolled {
+      background: #16324f;
+      border-bottom: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .topnav-inner {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 8px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: #16324f;
+      white-space: nowrap;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .navlink {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.98rem;
+      color: #16324f;
+      text-decoration: none;
+      padding: 6px 0;
+      position: relative;
+    }
+
+    .navlink.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .theme-toggle {
+      border: 1px solid rgba(17, 24, 39, 0.12);
+      background: transparent;
+      color: #16324f;
+      border-radius: 999px;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .topnav.scrolled .brand,
+    .topnav.scrolled .navlink,
+    .topnav.scrolled .theme-toggle {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .topnav.scrolled .navlink.active {
+      color: #7cc4ff;
+    }
+
+    .topnav.scrolled .theme-toggle {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .layout {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 34px 28px 48px;
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 84px;
+      align-self: start;
+      min-width: 0;
+      padding: 0 20px 0 8px;
+      border-right: 1px solid var(--border);
+    }
+
+    .profile-photo {
+      max-width: 230px;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 22px;
+      display: block;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar-name {
+      margin: 18px 0 8px;
+      font-family: "EB Garamond", serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.06;
+      color: var(--text);
+    }
+
+    .sidebar-role {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.06rem;
+      line-height: 1.35;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .sidebar-section {
+      margin-top: 22px;
+    }
+
+    .sidebar-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pronunciation-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.02rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .speaker-icon {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      flex: 0 0 auto;
+      color: var(--muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.02rem;
+      line-height: 1.3;
+      text-decoration: none;
+    }
+
+    .contact-item:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .research-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      margin: 0;
+    }
+
+    .social-links img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .content {
+      min-width: 0;
+      padding-bottom: 40px;
+      padding-left: 10px;
+    }
+
+    .page-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 3rem;
+      line-height: 1.05;
+      margin: 0;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .title-accent {
+      width: 52px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 12px 0 34px;
+    }
+
+    .teaching-block {
+      margin-bottom: 30px;
+    }
+
+    .section-heading {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.82rem;
+      line-height: 1.05;
+      margin: 0 0 16px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .paper-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .paper-card {
+      background: transparent;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+
+    .paper-title {
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      font-size: 1.18rem;
+      line-height: 1.55;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .philosophy-preview {
+      max-height: 210px;
+      overflow: hidden;
+      position: relative;
+      transition: max-height 0.35s ease;
+    }
+
+    .philosophy-preview.expanded {
+      max-height: 1200px;
+    }
+
+    .philosophy-text p {
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      font-size: 1.07rem;
+      line-height: 1.75;
+      color: var(--text);
+      margin: 0 0 16px;
+    }
+
+    .philosophy-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .read-more-btn {
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.94rem;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .read-more-btn:hover {
+      background: rgba(0, 0, 0, 0.03);
+      transform: translateY(-1px);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 10px;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+      color: var(--text);
+    }
+
+    .footer-heading {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .footer-office,
+    .footer-email,
+    .footer-quote {
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .footer-email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .footer-email-icon {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .footer-quote {
+      text-align: right;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    @media (max-width: 1100px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .sidebar {
+        position: static;
+        max-width: 460px;
+        padding-right: 0;
+        border-right: none;
+      }
+
+      .content {
+        padding-left: 0;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-quote {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .topnav-inner {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .layout {
+        padding: 18px 16px 36px;
+      }
+
+      .page-title {
+        font-size: 2.35rem;
+      }
+
+      .section-heading {
+        font-size: 1.55rem;
+      }
+
+      .paper-title {
+        font-size: 1.08rem;
+      }
+
+      .sidebar-name {
+        font-size: 1.6rem;
+      }
+
+      .footer-content {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <div class="brand">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="1.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 4v2"/>
+          <path d="M12 4v2"/>
+          <path d="M17 4v2"/>
+          <path d="M5.5 9h11v4.5a4.5 4.5 0 0 1-4.5 4.5H10a4.5 4.5 0 0 1-4.5-4.5V9z"/>
+          <path d="M16.5 10h1a1.8 1.8 0 0 1 0 3.6h-1"/>
+          <path d="M6.5 19.5h10.5"/>
         </svg>
-        <audio id="nameAudio">
-          <source src="xiangzhi.mp3" type="audio/mpeg">
-        </audio>
+        <span>Xiangzhi Zhao</span>
       </div>
+
+      <nav class="navlinks" aria-label="Primary">
+        <a class="navlink" href="index.html">About</a>
+        <a class="navlink" href="research.html">Research</a>
+        <a class="navlink active" href="teaching.html">Teaching</a>
+        <a class="navlink" href="cv.html">CV</a>
+        <a class="navlink" href="Notes.html">Notes</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">☀</button>
+      </nav>
     </div>
+  </header>
 
-    <div class="sidebar-section">
-      <div class="sidebar-label">Contact</div>
-      <a class="contact-item email" href="mailto:xz115@iu.edu" aria-label="Email Xiangzhi Zhao">
-        <img class="contact-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
-        <span class="contact-text">xz115@iu.edu</span>
-      </a>
-    </div>
-
-    <div class="sidebar-section">
-      <div class="sidebar-label">Research Interests</div>
-      <div class="research-list">
-        <div>International Trade</div>
-        <div>Environmental Economics</div>
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="profile-photo">
+        <img src="XZ_profile.jpg" alt="Xiangzhi Zhao">
       </div>
 
-      <div class="social-links" aria-label="Academic and social links">
-        <a href="https://orcid.org/0009-0001-5865-4096" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile">
-          <img src="ORCID.svg" alt="ORCID">
-        </a>
-        <a href="https://github.com/xiangzhizhao" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-          <img src="github.svg" alt="GitHub">
-        </a>
-        <a href="https://x.com/XZ7035836496867" target="_blank" rel="noopener noreferrer" aria-label="X profile">
-          <img src="X.svg" alt="X">
+      <div class="sidebar-name">Xiangzhi Zhao</div>
+      <div class="sidebar-role">
+        PhD Student in Economics<br>
+        Indiana University Bloomington
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Pronunciation</div>
+        <div class="pronunciation-row">
+          <span>Shee-ahng-jir</span>
+          <svg class="speaker-icon"
+               onclick="document.getElementById('nameAudio').play()"
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 16 16"
+               fill="none"
+               aria-hidden="true">
+            <path d="M2.5 6.5V9.5H4.8L8 12V4L4.8 6.5H2.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M10.1 5.6C10.7 6.1 11 6.9 11 8C11 9.1 10.7 9.9 10.1 10.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M11.7 4.2C12.7 5.1 13.2 6.3 13.2 8C13.2 9.7 12.7 10.9 11.7 11.8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <audio id="nameAudio">
+            <source src="xiangzhi.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Contact</div>
+        <a class="contact-item email" href="mailto:xz115@iu.edu" aria-label="Email Xiangzhi Zhao">
+          <img class="contact-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
+          <span class="contact-text">xz115@iu.edu</span>
         </a>
       </div>
-    </div>
-  </aside>
 
-  <section class="content">
-    <h1 class="page-title">Teaching</h1>
-    <div class="title-accent"></div>
-
-    <section class="teaching-block">
-      <h2 class="section-heading">Teaching Experience</h2>
-      <div class="paper-list">
-        <article class="paper-card">
-          <div class="paper-title">Teaching Assistant, EB251 Fund of Economics for Business II</div>
-        </article>
-
-        <article class="paper-card">
-          <div class="paper-title">Associate Instructor, [upcoming]</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="teaching-block">
-      <h2 class="section-heading">Teaching Philosophy</h2>
-      <article class="paper-card">
-        <div class="philosophy-preview" id="philosophy-text">
-          <div class="philosophy-text">
-            <p>
-              I was fortunate to meet several professors during my Ph.D. training who had a profound impact on me. Some of them were already highly respected economists in the profession, yet they never treated teaching as a secondary responsibility. They brought remarkable energy and intellectual curiosity into the classroom, and their example shaped my own view of what it means to be an educator.
-            </p>
-
-            <p>
-              When I first had the opportunity to teach, I set a simple goal for myself: no matter how busy my week might be, the moment I step into the classroom, I must be fully prepared, professional, and genuinely committed to my students. I want every class to be a place where students actively participate rather than passively listen.
-            </p>
-
-            <p>
-              My goal is not simply to teach students how to apply formulas mechanically. More importantly, I want them to learn how economists think. Before arriving at an answer, I encourage students to explore different approaches, identify the key economic intuition, and recognize common pitfalls in reasoning. A correct answer, by itself, is often the least interesting part of the learning process. What matters more is understanding how to approach a problem and apply economic reasoning beyond the classroom.
-            </p>
-
-            <p>
-              I particularly enjoy students who question assumptions and refuse to move on when there is a step in a derivation they do not fully understand. They should feel comfortable defending their views, debating alternative perspectives, and engaging critically with the material rather than acting as passive recipients of knowledge.
-            </p>
-
-            <p>
-              As the saying goes, it is better to teach someone how to fish than simply give them a fish. That idea has always been at the core of my teaching philosophy. You never know whether one of the students sitting in front of you today will become an economist five or ten years from now. Being part of that journey is one of the most rewarding aspects of teaching.
-            </p>
-          </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Research Interests</div>
+        <div class="research-list">
+          <div>International Trade</div>
+          <div>Environmental Economics</div>
         </div>
 
-        <button class="read-more-btn" id="read-more-btn" type="button">
-          Read More
-        </button>
-      </article>
-    </section>
-  </section>
-</main>
+        <div class="social-links" aria-label="Academic and social links">
+          <a href="https://orcid.org/0009-0001-5865-4096" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile">
+            <img src="ORCID.svg" alt="ORCID">
+          </a>
+          <a href="https://github.com/xiangzhizhao" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <img src="github.svg" alt="GitHub">
+          </a>
+          <a href="https://x.com/XZ7035836496867" target="_blank" rel="noopener noreferrer" aria-label="X profile">
+            <img src="X.svg" alt="X">
+          </a>
+        </div>
+      </div>
+    </aside>
 
+    <section class="content">
+      <h1 class="page-title">Teaching</h1>
+      <div class="title-accent"></div>
+
+      <section class="teaching-block">
+        <h2 class="section-heading">Teaching Experience</h2>
+        <div class="paper-list">
+          <article class="paper-card">
+            <div class="paper-title">Teaching Assistant, EB251 Fund of Economics for Business II</div>
+          </article>
+
+          <article class="paper-card">
+            <div class="paper-title">Associate Instructor, [upcoming]</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="teaching-block">
+        <h2 class="section-heading">Teaching Philosophy</h2>
+        <article class="paper-card">
+          <div class="philosophy-preview" id="philosophy-text">
+            <div class="philosophy-text">
+              <p>
+                I was fortunate to meet several professors during my Ph.D. training who had a profound impact on me. Some of them were already highly respected economists in the profession, yet they never treated teaching as a secondary responsibility. They brought remarkable energy and intellectual curiosity into the classroom, and their example shaped my own view of what it means to be an educator.
+              </p>
+
+              <p>
+                When I first had the opportunity to teach, I set a simple goal for myself: no matter how busy my week might be, the moment I step into the classroom, I must be fully prepared, professional, and genuinely committed to my students. I want every class to be a place where students actively participate rather than passively listen.
+              </p>
+
+              <p>
+                My goal is not simply to teach students how to apply formulas mechanically. More importantly, I want them to learn how economists think. Before arriving at an answer, I encourage students to explore different approaches, identify the key economic intuition, and recognize common pitfalls in reasoning. A correct answer, by itself, is often the least interesting part of the learning process. What matters more is understanding how to approach a problem and apply economic reasoning beyond the classroom.
+              </p>
+
+              <p>
+                I particularly enjoy students who question assumptions and refuse to move on when there is a step in a derivation they do not fully understand. They should feel comfortable defending their views, debating alternative perspectives, and engaging critically with the material rather than acting as passive recipients of knowledge.
+              </p>
+
+              <p>
+                As the saying goes, it is better to teach someone how to fish than simply give them a fish. That idea has always been at the core of my teaching philosophy. You never know whether one of the students sitting in front of you today will become an economist five or ten years from now. Being part of that journey is one of the most rewarding aspects of teaching.
+              </p>
+            </div>
+          </div>
+
+          <button class="read-more-btn" id="read-more-btn" type="button">Read More</button>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-office">
+        <div class="footer-heading">Office</div>
+        <div>
+          Department of Economics, IUB<br>
+          Wylie Hall<br>
+          Bloomington, IN 47405
+        </div>
+      </div>
+
+      <div class="footer-email">
+        <div class="footer-heading">Email</div>
+        <a class="footer-email-link" href="mailto:xz115@iu.edu">
+          <img class="footer-email-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
+          <span>xz115@iu.edu</span>
+        </a>
+      </div>
+
+      <div class="footer-quote">Little by little, one travels far.</div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const nav = document.querySelector(".topnav");
+      if (!nav) return;
+      if (window.scrollY > 10) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
+    });
+
+    const toggleBtn = document.getElementById("theme-toggle");
+
+    function updateThemeButton() {
+      if (!toggleBtn) return;
+      const isDark = document.body.classList.contains("dark-mode");
+      toggleBtn.textContent = isDark ? "☾" : "☀";
+      toggleBtn.setAttribute("aria-pressed", String(isDark));
+    }
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+
+    updateThemeButton();
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem(
+          "theme",
+          document.body.classList.contains("dark-mode") ? "dark" : "light"
+        );
+        updateThemeButton();
+      });
+    }
+
+    const philosophy = document.getElementById("philosophy-text");
+    const readMoreBtn = document.getElementById("read-more-btn");
+
+    if (philosophy && readMoreBtn) {
+      readMoreBtn.addEventListener("click", function () {
+        philosophy.classList.toggle("expanded");
+        readMoreBtn.textContent = philosophy.classList.contains("expanded")
+          ? "Show Less"
+          : "Read More";
+      });
+    }
+  </script>
+</body>
+</html>
