@@ -612,17 +612,31 @@ body.dark-mode .site-footer {
 
 .sidebar .social-links {
   justify-content: flex-start;
-  margin-top: 12px;
+  align-items: center;
+  gap: 18px;
+
+  margin-top: 14px;
+  margin-left: -2px;
+
+  padding-left: 0;
 }
 
 .sidebar .social-links a {
   width: 28px;
   height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
 }
 
 .sidebar .social-links img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 
 .content {
