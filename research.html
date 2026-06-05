@@ -53,30 +53,29 @@
       text-decoration: underline;
     }
 
-    .topnav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.2s ease, box-shadow 0.2s ease;
-    }
+   .topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #16324f;
+  backdrop-filter: blur(10px);
+  border-bottom: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .topnav.scrolled {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    }
+.topnav.scrolled {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
 
-    .topnav-inner {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 18px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
+.topnav-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
     .brand {
       display: flex;
       align-items: center;
