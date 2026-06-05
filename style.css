@@ -664,8 +664,8 @@ body.dark-mode .site-footer {
 }
 
 .research-block + .research-block {
-  margin-top: 28px;
-  padding-top: 28px;
+  margin-top: 18px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 
