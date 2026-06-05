@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV - Xiangzhi Zhao</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="topnav">
@@ -36,88 +36,92 @@
     </div>
   </header>
 
-  <main class="page cv-page">
-    <div class="paper-card cv-card">
-      <div class="paper-title cv-title">
-        Curriculum Vitae
+  <main class="cv-layout">
+    <aside class="cv-sidebar">
+      <img class="sidebar-photo" src="your-photo.jpg" alt="Xiangzhi Zhao" />
+
+      <h1 class="sidebar-name">Xiangzhi Zhao</h1>
+      <p class="sidebar-role">PhD Student in Economics</p>
+      <p class="sidebar-school">Indiana University Bloomington</p>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Pronunciation</div>
+        <div class="sidebar-text">
+          Shee-ahng-jir
+          <button class="sound-btn" type="button" aria-label="Play pronunciation">🔊</button>
+        </div>
       </div>
 
-      <div class="paper-links cv-download-row">
-        <a class="cv-download-btn"
-           href="Xiangzhi_Zhao_CV.pdf"
-           target="_blank"
-           rel="noopener noreferrer">
-          Download CV
+      <div class="sidebar-section">
+        <div class="sidebar-label">Contact</div>
+        <hr class="sidebar-divider" />
+        <a class="sidebar-email" href="mailto:xz115@iu.edu">
+          <img class="sidebar-email-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
+          <span>xz115@iu.edu</span>
         </a>
       </div>
-    </div>
 
-    <footer class="site-footer">
-      <div class="footer-content">
-        <div class="footer-office">
-          <div class="footer-heading">Office</div>
-          <div>
-            Department of Economics, IUB<br>
-            Wylie Hall<br>
-            Bloomington, IN 47405
-          </div>
-        </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Research Interests</div>
+        <div class="sidebar-text">International Trade</div>
+        <div class="sidebar-text">Environmental Economics</div>
+      </div>
 
-        <div class="footer-email">
-          <div class="footer-heading">Email</div>
-          <a class="footer-email-link" href="mailto:xz115@iu.edu">
-            <img class="footer-email-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
-            <span>xz115@iu.edu</span>
+      <div class="sidebar-socials">
+        <a href="#" aria-label="LinkedIn" class="social-link">in</a>
+        <a href="#" aria-label="GitHub" class="social-link">GH</a>
+        <a href="#" aria-label="X" class="social-link">X</a>
+      </div>
+    </aside>
+
+    <section class="cv-main">
+      <div class="paper-card cv-card">
+        <div class="paper-title cv-title">Curriculum Vitae</div>
+
+        <div class="paper-links cv-download-row">
+          <a class="cv-download-btn"
+             href="Xiangzhi_Zhao_CV.pdf"
+             target="_blank"
+             rel="noopener noreferrer">
+            Download CV
           </a>
         </div>
 
-        <div class="footer-quote">Little by little, one travels far.</div>
+        <div class="cv-content">
+          <p class="cv-note">You can place your CV summary, selected experience, or embed the PDF preview here.</p>
+        </div>
       </div>
-    </footer>
+    </section>
   </main>
 
   <script>
     window.addEventListener("scroll", function () {
       const nav = document.querySelector(".topnav");
       if (!nav) return;
-
-      if (window.scrollY > 1) {
-        nav.classList.add("scrolled");
-      } else {
-        nav.classList.remove("scrolled");
-      }
+      if (window.scrollY > 1) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
     });
 
     const toggleBtn = document.getElementById("theme-toggle");
 
     function updateThemeButton() {
       if (!toggleBtn) return;
-
       const isDark = document.body.classList.contains("dark-mode");
-
       toggleBtn.textContent = isDark ? "☾" : "☀";
       toggleBtn.setAttribute("aria-pressed", String(isDark));
     }
 
     const savedTheme = localStorage.getItem("theme");
-
     if (savedTheme === "dark") {
       document.body.classList.add("dark-mode");
     }
-
     updateThemeButton();
 
     if (toggleBtn) {
       toggleBtn.addEventListener("click", function () {
         document.body.classList.toggle("dark-mode");
-
         const isDark = document.body.classList.contains("dark-mode");
-
-        localStorage.setItem(
-          "theme",
-          isDark ? "dark" : "light"
-        );
-
+        localStorage.setItem("theme", isDark ? "dark" : "light");
         updateThemeButton();
       });
     }
