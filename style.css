@@ -424,7 +424,9 @@ body.dark-mode .intro {
   padding: 0;
 
   max-width: 580px;
-  margin: 0 auto;
+
+  margin-left: 250px;
+  margin-right: auto;
 }
 
 .cv-page .site-footer {
