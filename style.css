@@ -417,6 +417,18 @@ body.dark-mode .intro {
   font-size: 1rem;
 }
 
+.cv-page .paper-card {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.cv-page .site-footer {
+  margin-top: 140px;
+}
+
 /* Footer */
 .site-footer {
   margin-top: 56px;
