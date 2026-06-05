@@ -349,7 +349,6 @@ body.dark-mode .social-links a[href*="twitter.com"] img {
 .contact-block {
   margin-top: 18px;
   padding-top: 18px;
-  border-top: 1px solid rgba(17, 24, 39, 0.12);
   display: flex;
   flex-direction: column;
   gap: 12px;
