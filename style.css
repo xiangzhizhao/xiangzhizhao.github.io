@@ -687,7 +687,7 @@ body.dark-mode .research-heading {
 .work-list {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 16px;
 }
 
 .paper-card,
@@ -722,7 +722,7 @@ body.dark-mode .research-heading {
 }
 
 .paper-links {
-  margin-top: 10px;
+  margin-top: 6px;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -737,7 +737,7 @@ body.dark-mode .research-heading {
 }
 
 .paper-abstract {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .paper-abstract summary {
