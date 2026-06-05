@@ -5,20 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research - Xiangzhi Zhao</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg: #f7f4ee;
       --panel: #fbf8f3;
       --text: #1b2c4d;
-      --muted: #5f6673;
-      --link: #1663d6;
+      --muted: #6b7280;
+      --link: #4b6284;
+      --accent: #4b6284;
       --border: rgba(17, 24, 39, 0.12);
-      --nav-bg: rgba(255, 255, 255, 0.65);
-      --accent: #2b87ff;
-      --paper-bg: transparent;
+      --nav-bg: rgba(247, 244, 238, 0.92);
+      --nav-border: rgba(17, 24, 39, 0.06);
+      --shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
     }
 
     body.dark-mode {
@@ -27,14 +28,19 @@
       --text: #f2f2f2;
       --muted: #a8a8a8;
       --link: #8db4ff;
+      --accent: #8db4ff;
       --border: rgba(255, 255, 255, 0.12);
-      --nav-bg: rgba(255, 255, 255, 0.04);
-      --accent: #5aa0ff;
-      --paper-bg: transparent;
+      --nav-bg: rgba(17, 17, 17, 0.94);
+      --nav-border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -42,6 +48,7 @@
       background: var(--bg);
       color: var(--text);
       transition: background 0.2s ease, color 0.2s ease;
+      font-family: "EB Garamond", Georgia, serif;
     }
 
     a {
@@ -53,178 +60,208 @@
       text-decoration: underline;
     }
 
-.topnav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--nav-border);
+      transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
 
-  background: #f7f4ee;
+    .topnav.scrolled {
+      background: #16324f;
+      border-bottom: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
 
-  backdrop-filter: blur(10px);
+    .topnav-inner {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 8px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-  border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #16324f;
+      white-space: nowrap;
+    }
 
-  transition: all 0.25s ease;
-}
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
 
-.topnav.scrolled {
-  background: #16324f;
-  border-bottom: none;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
+    .navlink {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.98rem;
+      color: #16324f;
+      text-decoration: none;
+      padding: 6px 0;
+      position: relative;
+    }
 
-  .topnav-inner {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 8px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-    
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
-  font-size: 1.1rem;
-  color: #16324f;
-}
+    .navlink.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
 
-.navlinks {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  flex-wrap: wrap;
-}
+    .theme-toggle {
+      border: 1px solid rgba(17, 24, 39, 0.12);
+      background: transparent;
+      color: #16324f;
+      border-radius: 999px;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
 
-.navlink {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.98rem;
-  color: #16324f;
-  opacity: 1;
-  text-decoration: none;
-  padding: 6px 0;
-  position: relative;
-}
+    .topnav.scrolled .brand,
+    .topnav.scrolled .navlink,
+    .topnav.scrolled .theme-toggle {
+      color: rgba(255, 255, 255, 0.92);
+    }
 
-.navlink.active {
-  color: #2b87ff;
-  font-weight: 600;
-}
+    .topnav.scrolled .navlink.active {
+      color: #7cc4ff;
+    }
 
-.theme-toggle {
-  border: 1px solid rgba(17, 24, 39, 0.12);
-  background: transparent;
-  color: #16324f;
-  border-radius: 999px;
-  width: 38px;
-  height: 38px;
-  cursor: pointer;
-  font-size: 1rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+    .topnav.scrolled .theme-toggle {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
 
-/* ===== 滚动后文字变白 ===== */
+    .layout {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 34px 28px 48px;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 56px;
+      align-items: start;
+    }
 
-.topnav.scrolled .brand {
-  color: white;
-}
+    .sidebar {
+      position: sticky;
+      top: 84px;
+      align-self: start;
+      padding: 0;
+      min-width: 0;
+    }
 
-.topnav.scrolled .navlink {
-  color: rgba(255,255,255,0.85);
-}
+    .profile-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 22px;
+      display: block;
+      box-shadow: var(--shadow);
+    }
 
-.topnav.scrolled .navlink:hover {
-  color: white;
-}
+    .sidebar-name {
+      margin: 18px 0 8px;
+      font-family: "EB Garamond", serif;
+      font-size: 2.15rem;
+      font-weight: 600;
+      line-height: 1.05;
+      color: var(--text);
+    }
 
-.topnav.scrolled .navlink.active {
-  color: #7cc4ff;
-}
+    .sidebar-role {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.15rem;
+      line-height: 1.35;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
 
-.topnav.scrolled .theme-toggle {
-  color: white;
-  border-color: rgba(255,255,255,0.2);
-}
+    .sidebar-section {
+      margin-top: 22px;
+    }
 
- .sidebar-name {
-  font-family: "EB Garamond", serif;
-  font-size: 1.65rem;
-  line-height: 1.05;
-  margin: 10px 0 8px;
-  font-weight: 500;
-  color: var(--text);
-}
+    .sidebar-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
 
-.sidebar-role {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1rem;
-  line-height: 1.4;
-  color: var(--muted);
-  margin-bottom: 10px;
-}
+    .pronunciation-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
 
-.sidebar-label {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 4px;
-}
+    .speaker-icon {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      flex: 0 0 auto;
+      color: var(--muted);
+    }
 
-.pronunciation-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1rem;
-  color: var(--text);
-  line-height: 1.3;
-}
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      text-decoration: none;
+    }
 
-.contact-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1rem;
-  line-height: 1.3;
-  text-decoration: none;
-}
+    .contact-item:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
 
-.research-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1rem;
-  color: var(--text);
-  line-height: 1.35;
-}
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+      display: block;
+      flex: 0 0 auto;
+    }
+
     .research-list {
       display: flex;
       flex-direction: column;
       gap: 4px;
       font-family: "Cormorant Garamond", serif;
-      font-size: 0.96rem;
+      font-size: 1.02rem;
       color: var(--text);
       line-height: 1.45;
     }
 
     .social-links {
       display: flex;
-      gap: 18px;
+      gap: 16px;
       align-items: center;
       justify-content: flex-start;
       flex-wrap: wrap;
-      margin-top: 14px;
-      padding-left: 0;
+      margin-top: 16px;
     }
 
     .social-links a {
@@ -250,18 +287,19 @@
 
     .page-title {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 2.9rem;
+      font-size: 3.1rem;
       line-height: 1.05;
-      margin: 0 0 10px;
+      margin: 0;
       color: var(--text);
+      font-weight: 500;
     }
 
     .title-accent {
-      width: 36px;
-      height: 3px;
+      width: 52px;
+      height: 4px;
       background: var(--accent);
       border-radius: 999px;
-      margin-bottom: 34px;
+      margin: 12px 0 34px;
     }
 
     .research-block {
@@ -270,23 +308,27 @@
     }
 
     .research-block + .research-block {
-      margin-top: 24px;
-      padding-top: 24px;
+      margin-top: 26px;
+      padding-top: 26px;
       border-top: 1px solid var(--border);
     }
 
     .research-heading {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.7rem;
+      font-size: 1.85rem;
       line-height: 1.05;
-      margin: 0 0 10px;
-      color: #16324f;
+      margin: 0 0 14px;
+      color: var(--text);
       font-weight: 500;
+    }
+
+    .paper-item + .paper-item {
+      margin-top: 18px;
     }
 
     .paper-title {
       font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
-      font-size: 1.15rem;
+      font-size: 1.22rem;
       line-height: 1.5;
       color: var(--text);
       margin: 0;
@@ -294,8 +336,9 @@
 
     .journal {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       white-space: normal;
+      font-style: italic;
     }
 
     .paper-links {
@@ -316,8 +359,8 @@
     .paper-abstract {
       margin-top: 10px;
       font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-size: 1.07rem;
+      line-height: 1.72;
       color: var(--text);
     }
 
@@ -334,18 +377,10 @@
       margin: 0;
     }
 
-    .paper-item {
-      margin-top: 10px;
-    }
-
-    .paper-item:first-of-type {
-      margin-top: 0;
-    }
-
     .paper-meta {
       margin-top: 6px;
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--muted);
       line-height: 1.45;
     }
@@ -353,7 +388,7 @@
     .work-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 18px;
     }
 
     @media (max-width: 1100px) {
@@ -363,39 +398,41 @@
       }
 
       .sidebar {
-        max-width: 420px;
+        position: static;
+        max-width: 460px;
       }
     }
 
     @media (max-width: 800px) {
       .topnav-inner {
-        padding: 14px 16px;
+        padding: 12px 16px;
         flex-direction: column;
         align-items: flex-start;
       }
 
       .layout {
-        padding: 16px 16px 0;
+        padding: 18px 16px 36px;
       }
 
       .page-title {
-        font-size: 2.25rem;
+        font-size: 2.35rem;
       }
 
       .research-heading {
-        font-size: 1.4rem;
+        font-size: 1.55rem;
       }
 
       .paper-title {
-        font-size: 1.1rem;
+        font-size: 1.08rem;
       }
 
       .sidebar-name {
-        font-size: 2rem;
+        font-size: 1.9rem;
       }
     }
   </style>
 </head>
+
 <body>
   <header class="topnav">
     <div class="topnav-inner">
@@ -436,8 +473,6 @@
         Indiana University Bloomington
       </div>
 
-
-
       <div class="sidebar-section">
         <div class="sidebar-label">Pronunciation</div>
         <div class="pronunciation-row">
@@ -445,8 +480,6 @@
           <svg class="speaker-icon"
                onclick="document.getElementById('nameAudio').play()"
                xmlns="http://www.w3.org/2000/svg"
-               width="16"
-               height="16"
                viewBox="0 0 16 16"
                fill="none"
                aria-hidden="true">
@@ -466,7 +499,6 @@
               stroke-width="1.2"
               stroke-linecap="round"/>
           </svg>
-
           <audio id="nameAudio">
             <source src="xiangzhi.mp3" type="audio/mpeg">
           </audio>
@@ -475,12 +507,10 @@
 
       <div class="sidebar-section">
         <div class="sidebar-label">Contact</div>
-        <div class="contact-block">
-          <a class="contact-item email" href="mailto:xz115@iu.edu" aria-label="Email Xiangzhi Zhao">
-            <img class="contact-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
-            <span class="contact-text">xz115@iu.edu</span>
-          </a>
-        </div>
+        <a class="contact-item email" href="mailto:xz115@iu.edu" aria-label="Email Xiangzhi Zhao">
+          <img class="contact-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
+          <span class="contact-text">xz115@iu.edu</span>
+        </a>
       </div>
 
       <div class="sidebar-section">
@@ -494,20 +524,18 @@
           <a href="https://orcid.org/0009-0001-5865-4096" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile">
             <img src="ORCID.svg" alt="ORCID">
           </a>
-
           <a href="https://github.com/xiangzhizhao" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-            <img src="github.svg" alt="GitHub" class="social-icon github-icon">
+            <img src="github.svg" alt="GitHub">
           </a>
-
           <a href="https://x.com/XZ7035836496867" target="_blank" rel="noopener noreferrer" aria-label="X profile">
-            <img src="X.svg" alt="X" class="social-icon x-icon">
+            <img src="X.svg" alt="X">
           </a>
         </div>
       </div>
     </aside>
 
     <section class="content">
-      <div class="page-title">Research</div>
+      <h1 class="page-title">Research</h1>
       <div class="title-accent"></div>
 
       <section class="research-block">
@@ -566,21 +594,15 @@
 
         <div class="work-list">
           <div class="paper-item">
-            <div class="paper-title">
-              Trade Shocks and Regional Immobility
-            </div>
-            <div class="paper-meta">
-              International Trade, Labor Mobility, and Regional Adjustment
-            </div>
+            <div class="paper-title">Trade Shocks and Regional Immobility</div>
+            <div class="paper-meta">International Trade, Labor Mobility, and Regional Adjustment</div>
           </div>
 
           <div class="paper-item">
             <div class="paper-title">
               Beyond Gravity: Explaining Bilateral Trade Imbalances through Asymmetric Trade Frictions
             </div>
-            <div class="paper-meta">
-              International Trade and Economic Geography
-            </div>
+            <div class="paper-meta">International Trade and Economic Geography</div>
           </div>
         </div>
       </section>
@@ -591,12 +613,8 @@
     window.addEventListener("scroll", function () {
       const nav = document.querySelector(".topnav");
       if (!nav) return;
-
-      if (window.scrollY > 10) {
-        nav.classList.add("scrolled");
-      } else {
-        nav.classList.remove("scrolled");
-      }
+      if (window.scrollY > 10) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
     });
 
     const toggleBtn = document.getElementById("theme-toggle");
@@ -612,7 +630,6 @@
     if (savedTheme === "dark") {
       document.body.classList.add("dark-mode");
     }
-
     updateThemeButton();
 
     if (toggleBtn) {
