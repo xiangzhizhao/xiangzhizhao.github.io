@@ -422,7 +422,9 @@ body.dark-mode .intro {
   box-shadow: none;
   background: transparent;
   padding: 0;
-  margin-bottom: 0;
+
+  max-width: 580px;
+  margin: 0 auto;
 }
 
 .cv-page .site-footer {
