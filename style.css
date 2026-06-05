@@ -503,11 +503,11 @@ body.dark-mode .site-footer {
 
 .profile-photo {
   width: 100%;
-  max-width: 280px;
+  max-width: 220px;
   aspect-ratio: 1 / 1;
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
-  margin: 0 0 18px 0;
+  margin: 0 0 16px 0;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
@@ -520,19 +520,19 @@ body.dark-mode .site-footer {
 
 .sidebar-name {
   font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
-  font-size: 2.2rem;
-  line-height: 1.08;
-  margin: 12px 0 10px;
+  font-size: 1.85rem;
+  line-height: 1.05;
+  margin: 10px 0 8px;
   font-weight: 500;
   color: var(--text);
 }
 
 .sidebar-role {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.96rem;
+  font-size: 0.92rem;
   line-height: 1.45;
   color: var(--muted);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .sidebar-divider {
@@ -544,14 +544,14 @@ body.dark-mode .site-footer {
 }
 
 .sidebar-section {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   max-width: 270px;
 }
 
 .sidebar-label {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 10px;
@@ -562,7 +562,7 @@ body.dark-mode .site-footer {
   align-items: center;
   gap: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.96rem;
+  font-size: 0.92rem;
   color: var(--text);
   line-height: 1.35;
 }
@@ -605,63 +605,58 @@ body.dark-mode .site-footer {
   flex-direction: column;
   gap: 4px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.96rem;
+  font-size: 0.92rem;
   color: var(--text);
   line-height: 1.45;
 }
 
 .sidebar .social-links {
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 18px;
-
-  margin-top: 14px;
+  flex-wrap: wrap;
+  margin-top: 12px;
   margin-left: -2px;
-
   padding-left: 0;
 }
 
 .sidebar .social-links a {
-  width: 28px;
-  height: 28px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
+  width: 28px;
+  height: 28px;
   margin: 0;
   padding: 0;
 }
 
 .sidebar .social-links img {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   display: block;
 }
 
 .content {
   min-width: 0;
-  padding-bottom: 40px;
+  padding-bottom: 32px;
 }
 
 .page-title {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 3rem;
+  font-size: 2.35rem;
   line-height: 1.05;
-  margin: 0 0 10px;
-  color: #16324f;
-}
-
-body.dark-mode .page-title {
-  color: #f5f5f5;
+  margin: 0 0 8px;
+  color: var(--text);
+  font-weight: 400;
 }
 
 .title-accent {
-  width: 56px;
+  width: 48px;
   height: 3px;
   background: var(--accent);
   border-radius: 999px;
-  margin-bottom: 34px;
+  margin-bottom: 28px;
 }
 
 .research-block {
@@ -669,17 +664,18 @@ body.dark-mode .page-title {
 }
 
 .research-block + .research-block {
-  margin-top: 34px;
-  padding-top: 34px;
+  margin-top: 28px;
+  padding-top: 28px;
   border-top: 1px solid var(--line);
 }
 
 .research-heading {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.6rem;
-  font-weight: 500;
-  margin: 0 0 18px;
+  font-size: 1.45rem;
+  line-height: 1.1;
+  margin: 0 0 16px;
   color: #16324f;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
@@ -691,7 +687,7 @@ body.dark-mode .research-heading {
 .work-list {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 22px;
 }
 
 .paper-card,
@@ -712,8 +708,8 @@ body.dark-mode .research-heading {
 
 .paper-title {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.1rem;
-  line-height: 1.5;
+  font-size: 1.08rem;
+  line-height: 1.55;
   color: var(--text);
 }
 
@@ -721,7 +717,7 @@ body.dark-mode .research-heading {
   margin-top: 6px;
   color: var(--muted);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   line-height: 1.45;
 }
 
@@ -732,7 +728,8 @@ body.dark-mode .research-heading {
   align-items: center;
   flex-wrap: wrap;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.98rem;
+  font-size: 0.94rem;
+  color: var(--muted);
 }
 
 .paper-links span {
@@ -748,6 +745,7 @@ body.dark-mode .research-heading {
   color: var(--accent);
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.94rem;
 }
 
 .paper-abstract p {
@@ -845,7 +843,7 @@ body.dark-mode .philosophy-text {
   margin-top: 10px;
   margin-left: 0;
   background: transparent;
-  border: none;
+  border: none
   padding: 0;
   color: var(--accent);
   font-size: 0.95rem;
@@ -863,60 +861,60 @@ body.dark-mode .philosophy-preview::after {
 }
 
 /* Notes page */
-.notes-directory {
+.Notes-directory {
   max-width: 800px;
   margin: 60px auto;
 }
 
-.notes-directory .notes-intro {
+.Notes-directory .Notes-intro {
   color: var(--muted) !important;
   margin-bottom: 40px;
   font-size: 1.05rem;
 }
 
-.notes-directory .notes-group {
+.Notes-directory .Notes-group {
   margin-bottom: 50px;
 }
 
-.notes-directory .notes-group h2 {
+.Notes-directory .Notes-group h2 {
   font-size: 1.5rem;
   margin-bottom: 16px;
   color: var(--text) !important;
 }
 
-.notes-directory .notes-group ul {
+.Notes-directory .Notes-group ul {
   list-style: none;
   padding-left: 0;
 }
 
-.notes-directory .notes-group li {
+.Notes-directory .Notes-group li {
   margin-bottom: 12px;
 }
 
-.notes-directory .notes-group a {
+.Notes-directory .Notes-group a {
   color: var(--text) !important;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: all 0.2s ease;
 }
 
-.notes-directory .notes-group a:hover {
+.Notes-directory .Notes-group a:hover {
   border-bottom-color: var(--accent) !important;
 }
 
-body.dark-mode .notes-directory .notes-intro {
+body.dark-mode .Notes-directory .Notes-intro {
   color: var(--muted) !important;
 }
 
-body.dark-mode .notes-directory .notes-group h2 {
+body.dark-mode .Notes-directory .Notes-group h2 {
   color: var(--text) !important;
 }
 
-body.dark-mode .notes-directory .notes-group a {
+body.dark-mode .Notes-directory .Notes-group a {
   color: var(--text) !important;
 }
 
-body.dark-mode .notes-directory .notes-group a:hover {
+body.dark-mode .Notes-directory .Notes-group a:hover {
   border-bottom-color: var(--accent) !important;
 }
 
@@ -1053,14 +1051,14 @@ body.dark-mode {
   color: #e6edf7;
 }
 
-body.dark-mode .notes-title,
-body.dark-mode .notes-intro,
-body.dark-mode .notes-link,
-body.dark-mode .notes-section-header h2 {
+body.dark-mode .Notes-title,
+body.dark-mode .Notes-intro,
+body.dark-mode .Notes-link,
+body.dark-mode .Notes-section-header h2 {
   color: #e6edf7 !important;
 }
 
-body.dark-mode .notes-date {
+body.dark-mode .Notes-date {
   color: #aeb8c4 !important;
 }
 
@@ -1074,23 +1072,23 @@ body.dark-mode .section-more:hover::after {
   color: #ffffff !important;
 }
 
-body.dark-mode .notes-divider {
+body.dark-mode .Notes-divider {
   background: rgba(120, 170, 255, 0.45) !important;
 }
 
-body.dark-mode .notes-section-header {
+body.dark-mode .Notes-section-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
-body.dark-mode .notes-item {
+body.dark-mode .Notes-item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
-body.dark-mode .notes-footer {
+body.dark-mode .Notes-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
   color: #aeb8c4 !important;
 }
 
-body.dark-mode .notes-link:hover {
+body.dark-mode .Notes-link:hover {
   opacity: 0.9;
 }
