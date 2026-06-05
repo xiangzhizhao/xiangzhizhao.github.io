@@ -850,3 +850,13 @@ body.dark-mode .notes-footer {
 body.dark-mode .notes-link:hover {
   opacity: 0.9;
 }
+.cv-page .site-footer {
+  margin-top: 140px;.cv-page .paper-card {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+}
+
