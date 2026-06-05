@@ -7,6 +7,427 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --panel: #fbf8f3;
+      --text: #1b2c4d;
+      --muted: #5f6673;
+      --link: #1663d6;
+      --border: rgba(17, 24, 39, 0.12);
+      --nav-bg: rgba(255, 255, 255, 0.65);
+      --accent: #2b87ff;
+      --paper-bg: transparent;
+    }
+
+    body.dark-mode {
+      --bg: #111111;
+      --panel: #181818;
+      --text: #f2f2f2;
+      --muted: #a8a8a8;
+      --link: #8db4ff;
+      --border: rgba(255, 255, 255, 0.12);
+      --nav-bg: rgba(255, 255, 255, 0.04);
+      --accent: #5aa0ff;
+      --paper-bg: transparent;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .topnav.scrolled {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .topnav-inner {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .navlink {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.98rem;
+      color: var(--text);
+      opacity: 0.92;
+      text-decoration: none;
+      padding: 6px 0;
+      position: relative;
+    }
+
+    .navlink.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      border-radius: 999px;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .layout {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 48px;
+      padding: 28px 28px 0;
+      align-items: start;
+    }
+
+    .sidebar {
+      padding-top: 10px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      overflow: hidden;
+      margin: 0 0 18px 0;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sidebar-name {
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      font-size: 2.2rem;
+      line-height: 1.08;
+      margin: 12px 0 10px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .sidebar-role {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.45;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 16px 0 18px;
+      width: 100%;
+      max-width: 270px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 18px;
+      max-width: 270px;
+    }
+
+    .sidebar-label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .pronunciation-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .speaker-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .speaker-icon:hover {
+      color: var(--text);
+    }
+
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+
+    .contact-item:hover {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .contact-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .research-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+    }
+
+    .social-links img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .content {
+      min-width: 0;
+      padding-bottom: 40px;
+    }
+
+    .page-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.9rem;
+      line-height: 1.05;
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+
+    .title-accent {
+      width: 56px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin-bottom: 34px;
+    }
+
+    .research-block {
+      padding: 0;
+      margin: 0;
+    }
+
+    .research-block + .research-block {
+      margin-top: 34px;
+      padding-top: 34px;
+      border-top: 1px solid var(--border);
+    }
+
+    .research-heading {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2rem;
+      line-height: 1.1;
+      margin: 0 0 18px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .paper-title {
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      font-size: 1.22rem;
+      line-height: 1.5;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .journal {
+      color: var(--muted);
+      font-size: 1.02rem;
+      white-space: normal;
+    }
+
+    .paper-links {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+
+    .paper-links a {
+      color: var(--link);
+    }
+
+    .paper-abstract {
+      margin-top: 12px;
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .paper-abstract summary {
+      cursor: pointer;
+      color: var(--link);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.94rem;
+      outline: none;
+      margin-bottom: 8px;
+    }
+
+    .paper-abstract p {
+      margin: 0;
+    }
+
+    .paper-item {
+      margin-top: 22px;
+    }
+
+    .paper-item:first-of-type {
+      margin-top: 0;
+    }
+
+    .paper-meta {
+      margin-top: 6px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .work-list {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    @media (max-width: 1100px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .sidebar {
+        max-width: 420px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .topnav-inner {
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .layout {
+        padding: 16px 16px 0;
+      }
+
+      .page-title {
+        font-size: 2.3rem;
+      }
+
+      .research-heading {
+        font-size: 1.72rem;
+      }
+
+      .paper-title {
+        font-size: 1.1rem;
+      }
+
+      .sidebar-name {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="topnav">
@@ -36,104 +457,171 @@
     </div>
   </header>
 
-  <main class="page research-page">
-    <section class="research-block">
-      <h2 class="research-heading">Publications</h2>
-
-      <article class="paper-card">
-        <div class="paper-title">
-          Carbon Market Pilot Policies and Corporate Green Governance Performance:
-          Evidence from China
-          <span class="journal">(<em>Contemporary Economic Policy</em>, 2026)</span>
-        </div>
-
-        <div class="paper-links">
-          <a href="https://doi.org/10.1111/coep.70036" target="_blank" rel="noopener noreferrer">
-            Published Version
-          </a>
-          <span>·</span>
-          <a href="Carbon_Market_CEP_2026.pdf" target="_blank" rel="noopener noreferrer">
-            PDF
-          </a>
-        </div>
-
-        <details class="paper-abstract">
-          <summary>Abstract</summary>
-          <p>
-            This study employs a multi-period difference-in-differences model to analyze
-            2009–2022 corporate data, assessing the impact of China's carbon market pilot
-            policy on corporate green governance performance, including environmental
-            disclosure, green innovation, and stakeholder engagement. The policy enhances
-            green governance through two channels by easing corporate financing constraints
-            and stimulating green technology innovation, with results robust to propensity
-            score matching difference-in-differences and spatial placebo tests. Notably,
-            effects are stronger for non-state-owned enterprises, central-region firms, and
-            firms led by environmentally proactive executives. We propose tiered carbon
-            pricing and targeted green financing to address regional and ownership-based
-            disparities, guiding strengthening of market-based green governance in emerging
-            economies.
-          </p>
-        </details>
-      </article>
-    </section>
-
-    <section class="research-block">
-      <h2 class="research-heading">Working Papers</h2>
-
-      <article class="paper-card">
-        <div class="paper-title">
-          Executive Green Experience and Corporate Carbon Information Disclosure
-          <span class="journal">(<em>Under Review</em>, with Y. Li)</span>
-        </div>
-      </article>
-    </section>
-
-    <section class="research-block">
-      <h2 class="research-heading">Work in Progress</h2>
-
-      <div class="paper-list">
-        <article class="paper-card">
-          <div class="paper-title">
-            Trade Shocks and Regional Immobility
-          </div>
-          <div class="paper-meta">
-            International Trade, Labor Mobility, and Regional Adjustment
-          </div>
-        </article>
-
-        <article class="paper-card">
-          <div class="paper-title">
-            Beyond Gravity: Explaining Bilateral Trade Imbalances through Asymmetric Trade Frictions
-          </div>
-          <div class="paper-meta">
-            International Trade and Economic Geography
-          </div>
-        </article>
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="profile-photo">
+        <img src="XZ_profile.jpg" alt="Xiangzhi Zhao">
       </div>
-    </section>
 
-    <footer class="site-footer">
-      <div class="footer-content">
-        <div class="footer-office">
-          <div class="footer-heading">Office</div>
-          <div>
-            Department of Economics, IUB<br>
-            Wylie Hall<br>
-            Bloomington, IN 47405
-          </div>
+      <div class="sidebar-name">Xiangzhi Zhao</div>
+      <div class="sidebar-role">
+        PhD Student in Economics<br>
+        Indiana University Bloomington
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Pronunciation</div>
+        <div class="pronunciation-row">
+          <span>Shee-ahng-jir</span>
+          <svg class="speaker-icon"
+               onclick="document.getElementById('nameAudio').play()"
+               xmlns="http://www.w3.org/2000/svg"
+               width="16"
+               height="16"
+               viewBox="0 0 16 16"
+               fill="none"
+               aria-hidden="true">
+            <path
+              d="M2.5 6.5V9.5H4.8L8 12V4L4.8 6.5H2.5Z"
+              stroke="currentColor"
+              stroke-width="1.2"
+              stroke-linejoin="round"/>
+            <path
+              d="M10.1 5.6C10.7 6.1 11 6.9 11 8C11 9.1 10.7 9.9 10.1 10.4"
+              stroke="currentColor"
+              stroke-width="1.2"
+              stroke-linecap="round"/>
+            <path
+              d="M11.7 4.2C12.7 5.1 13.2 6.3 13.2 8C13.2 9.7 12.7 10.9 11.7 11.8"
+              stroke="currentColor"
+              stroke-width="1.2"
+              stroke-linecap="round"/>
+          </svg>
+
+          <audio id="nameAudio">
+            <source src="xiangzhi.mp3" type="audio/mpeg">
+          </audio>
         </div>
+      </div>
 
-        <div class="footer-email">
-          <div class="footer-heading">Email</div>
-          <a class="footer-email-link" href="mailto:xz115@iu.edu">
-            <img class="footer-email-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
-            <span>xz115@iu.edu</span>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Contact</div>
+        <div class="contact-block">
+          <a class="contact-item email" href="mailto:xz115@iu.edu" aria-label="Email Xiangzhi Zhao">
+            <img class="contact-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
+            <span class="contact-text">xz115@iu.edu</span>
           </a>
         </div>
-
-        <div class="footer-quote">Little by little, one travels far.</div>
       </div>
-    </footer>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Research Interests</div>
+        <div class="research-list">
+          <div>International Trade</div>
+          <div>Environmental Economics</div>
+        </div>
+
+        <div class="social-links" aria-label="Academic and social links">
+          <a href="https://orcid.org/0009-0001-5865-4096" target="_blank" rel="noopener noreferrer" aria-label="ORCID profile">
+            <img src="ORCID.svg" alt="ORCID">
+          </a>
+
+          <a href="https://github.com/xiangzhizhao" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <img src="github.svg" alt="GitHub" class="social-icon github-icon">
+          </a>
+
+          <a href="https://x.com/XZ7035836496867" target="_blank" rel="noopener noreferrer" aria-label="X profile">
+            <img src="X.svg" alt="X" class="social-icon x-icon">
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="page-title">Research</div>
+      <div class="title-accent"></div>
+
+      <section class="research-block">
+        <h2 class="research-heading">Publications</h2>
+
+        <div class="paper-item">
+          <div class="paper-title">
+            Carbon Market Pilot Policies and Corporate Green Governance Performance:
+            Evidence from China
+            <span class="journal">(<em>Contemporary Economic Policy</em>, 2026)</span>
+          </div>
+
+          <div class="paper-links">
+            <a href="https://doi.org/10.1111/coep.70036" target="_blank" rel="noopener noreferrer">
+              Published Version
+            </a>
+            <span>·</span>
+            <a href="Carbon_Market_CEP_2026.pdf" target="_blank" rel="noopener noreferrer">
+              PDF
+            </a>
+            <span>·</span>
+            <a href="#abstract">Abstract</a>
+          </div>
+
+          <details class="paper-abstract" id="abstract">
+            <summary>Abstract</summary>
+            <p>
+              This study employs a multi-period difference-in-differences model to analyze
+              2009–2022 corporate data, assessing the impact of China's carbon market pilot
+              policy on corporate green governance performance, including environmental
+              disclosure, green innovation, and stakeholder engagement. The policy enhances
+              green governance through two channels by easing corporate financing constraints
+              and stimulating green technology innovation, with results robust to propensity
+              score matching difference-in-differences and spatial placebo tests. Notably,
+              effects are stronger for non-state-owned enterprises, central-region firms, and
+              firms led by environmentally proactive executives. We propose tiered carbon
+              pricing and targeted green financing to address regional and ownership-based
+              disparities, guiding strengthening of market-based green governance in emerging
+              economies.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="research-block">
+        <h2 class="research-heading">Working Papers</h2>
+
+        <div class="paper-item">
+          <div class="paper-title">
+            Executive Green Experience and Corporate Carbon Information Disclosure
+            <span class="journal">(<em>Under Review</em>, with Y. Li)</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-block">
+        <h2 class="research-heading">Work in Progress</h2>
+
+        <div class="work-list">
+          <div class="paper-item">
+            <div class="paper-title">
+              Trade Shocks and Regional Immobility
+            </div>
+            <div class="paper-meta">
+              International Trade, Labor Mobility, and Regional Adjustment
+            </div>
+          </div>
+
+          <div class="paper-item">
+            <div class="paper-title">
+              Beyond Gravity: Explaining Bilateral Trade Imbalances through Asymmetric Trade Frictions
+            </div>
+            <div class="paper-meta">
+              International Trade and Economic Geography
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
   </main>
 
   <script>
@@ -141,7 +629,7 @@
       const nav = document.querySelector(".topnav");
       if (!nav) return;
 
-      if (window.scrollY > 1) {
+      if (window.scrollY > 10) {
         nav.classList.add("scrolled");
       } else {
         nav.classList.remove("scrolled");
