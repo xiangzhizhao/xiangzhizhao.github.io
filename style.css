@@ -1009,10 +1009,11 @@ body.dark-mode .cv-page .cv-title {
     grid-template-columns: 1fr;
     gap: 28px;
   }
-
-  .sidebar {
+  
+.sidebar {
     padding-top: 0;
-  }
+    margin-left: 16px;
+}
 
   .profile-photo {
     max-width: 360px;
