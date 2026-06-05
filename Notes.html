@@ -47,8 +47,7 @@
 
     .notes-section {
       margin-top: 28px;
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
+      padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -142,16 +141,72 @@
       transform: translateX(2px);
     }
 
-    .notes-footer {
+    .site-footer {
       margin-top: 42px;
       padding-top: 14px;
       border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+    }
+
+    .footer-content {
+      max-width: 660px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 56px;
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .footer-heading {
+      color: var(--text);
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+      font-weight: 500;
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      letter-spacing: 0.01em;
+    }
+
+    .footer-office {
+      color: var(--text);
+    }
+
+    .footer-email {
+      margin-top: 0;
+    }
+
+    .footer-email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--link);
+      text-decoration: none;
+      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+      font-size: 1.05rem;
+    }
+
+    .footer-email-link:hover {
+      text-decoration: underline;
+    }
+
+    .footer-email-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .footer-quote {
+      grid-column: 1 / -1;
+      margin-top: 18px;
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 0.95rem;
       color: var(--muted);
-      font-size: 0.88rem;
+      letter-spacing: 0.01em;
     }
 
     body.dark-mode .notes-divider {
@@ -182,6 +237,16 @@
       .notes-section-header {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        max-width: 100%;
+      }
+
+      .footer-quote {
+        grid-column: auto;
       }
     }
   </style>
@@ -287,9 +352,27 @@
       </ul>
     </section>
 
-    <footer class="notes-footer">
-      <div>© Xiangzhi Zhao</div>
-      <div>Built as a clean archive page.</div>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-office">
+          <div class="footer-heading">Office</div>
+          <div>
+            Department of Economics, IUB<br>
+            Wylie Hall<br>
+            Bloomington, IN 47405
+          </div>
+        </div>
+
+        <div class="footer-email">
+          <div class="footer-heading">Email</div>
+          <a class="footer-email-link" href="mailto:xz115@iu.edu">
+            <img class="footer-email-icon" src="envelope_icon.svg" alt="" aria-hidden="true">
+            <span>xz115@iu.edu</span>
+          </a>
+        </div>
+
+        <div class="footer-quote">Little by little, one travels far.</div>
+      </div>
     </footer>
   </main>
 
