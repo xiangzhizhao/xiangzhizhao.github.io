@@ -665,7 +665,6 @@ body.dark-mode .site-footer {
 .research-block + .research-block {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid var(--line);
 }
 
 .research-heading {
