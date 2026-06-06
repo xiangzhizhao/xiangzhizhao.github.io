@@ -8,41 +8,101 @@
   <link rel="stylesheet" href="../../style.css" />
 
   <style>
-    body {
-      max-width: 850px;
-      margin: 60px auto;
-      padding: 0 24px;
-      font-family: "EB Garamond", Georgia, serif;
-      line-height: 1.8;
-      color: #1b2c4d;
+    html, body {
+      margin: 0;
+      padding: 0;
       background: #f7f4ee;
+      color: #1b2c4d;
     }
 
-    h1 {
-      font-size: 3rem;
-      line-height: 1.1;
-      margin-bottom: 1rem;
+    body {
+      font-family: "EB Garamond", Georgia, serif;
+      line-height: 1.7;
     }
 
-    h2 {
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-    }
-
-    p {
-      font-size: 1.15rem;
-      margin-bottom: 1.2rem;
+    .article-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 44px 28px 64px;
+      background: #f7f4ee;
     }
 
     .back-link {
       display: inline-block;
-      margin-bottom: 2rem;
+      margin-bottom: 1.6rem;
+      color: #4b6284;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .article {
+      background: transparent;
+    }
+
+    .article-header {
+      margin-bottom: 2.2rem;
     }
 
     .article-date {
       color: #6b7280;
-      margin-bottom: 1rem;
+      margin: 0 0 0.9rem;
+      font-size: 1rem;
+    }
+
+    .article-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.35rem;
+      line-height: 1.12;
+      margin: 0;
+      color: #1b2c4d;
+      font-weight: 600;
+      max-width: 16ch;
+    }
+
+    .article-body {
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .article-body p {
+      margin: 0 0 1rem;
+    }
+
+    .article-body h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      margin: 2.5rem 0 0.9rem;
+      color: #1b2c4d;
+      font-weight: 600;
+    }
+
+    .article-body em {
+      font-style: italic;
+    }
+
+    @media (max-width: 720px) {
+      .article-page {
+        padding: 28px 18px 52px;
+      }
+
+      .article-title {
+        font-size: 2rem;
+        max-width: none;
+      }
+
+      .article-body {
+        font-size: 1.02rem;
+        line-height: 1.65;
+      }
+
+      .article-body h2 {
+        font-size: 1.35rem;
+      }
     }
   </style>
 </head>
