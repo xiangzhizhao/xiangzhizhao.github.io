@@ -317,15 +317,8 @@
     }
 
     .research-block {
-      padding: 0;
-      margin: 0;
-    }
-
-    .research-block + .research-block {
-      margin-top: 26px;
-      padding-top: 26px;
-      border-top: 1px solid var(--border);
-    }
+  margin-bottom: 30px;
+}
 
     .research-heading {
       font-family: "Cormorant Garamond", Georgia, serif;
@@ -335,7 +328,14 @@
       color: var(--text);
       font-weight: 500;
     }
-
+    
+    .section-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: 10px 0 22px;
+}
+    
     .paper-item + .paper-item {
       margin-top: 18px;
     }
@@ -617,7 +617,8 @@
       <div class="title-accent"></div>
 
       <section class="research-block">
-        <h2 class="research-heading">Publications</h2>
+  <h2 class="research-heading">Publications</h2>
+  <div class="section-rule"></div>
 
         <div class="paper-item">
           <div class="paper-title">
@@ -656,8 +657,10 @@
         </div>
       </section>
 
-      <section class="research-block">
-        <h2 class="research-heading">Working Papers</h2>
+     <section class="research-block">
+  <h2 class="research-heading">Working Papers</h2>
+  <div class="section-rule"></div>
+
 
         <div class="paper-item">
           <div class="paper-title">
@@ -668,7 +671,9 @@
       </section>
 
       <section class="research-block">
-        <h2 class="research-heading">Work in Progress</h2>
+  <h2 class="research-heading">Work in Progress</h2>
+  <div class="section-rule"></div>
+
 
         <div class="work-list">
           <div class="paper-item">
