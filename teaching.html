@@ -150,10 +150,10 @@
     .layout {
       max-width: 1500px;
       margin: 0 auto;
-      padding: 34px 28px 48px;
+      padding: 34px 28px 48px 64px;
       display: grid;
-      grid-template-columns: 320px minmax(0, 1fr);
-      gap: 34px;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 42px;
       align-items: start;
     }
 
@@ -162,27 +162,14 @@
       top: 84px;
       align-self: start;
       min-width: 0;
-      padding: 0 20px 0 8px;
+      padding: 0 18px 0 8px;
       border-right: 1px solid var(--border);
     }
 
-    .profile-photo {
-      max-width: 180px;
-    }
-
-    .profile-photo img {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      border-radius: 22px;
-      display: block;
-      box-shadow: var(--shadow);
-    }
-
     .sidebar-name {
-      margin: 18px 0 6px;
+      margin: 6px 0 6px;
       font-family: "EB Garamond", serif;
-      font-size: 1.75rem;
+      font-size: 1.62rem;
       font-weight: 600;
       line-height: 1.06;
       color: var(--text);
@@ -294,12 +281,12 @@
     .content {
       min-width: 0;
       padding-bottom: 0;
-      padding-left: 10px;
+      padding-left: 8px;
     }
 
     .page-title {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 3rem;
+      font-size: 2.72rem;
       line-height: 1.05;
       margin: 0;
       color: var(--text);
@@ -311,7 +298,7 @@
       height: 4px;
       background: var(--accent);
       border-radius: 999px;
-      margin: 12px 0 34px;
+      margin: 12px 0 28px;
     }
 
     .teaching-block {
@@ -320,28 +307,35 @@
 
     .section-heading {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.56rem;
+      font-size: 1.48rem;
       line-height: 1.05;
-      margin: 0 0 16px;
+      margin: 0;
       color: var(--text);
       font-weight: 500;
+    }
+
+    .section-rule {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 14px 0 18px;
     }
 
     .paper-list {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
     }
 
     .paper-card {
       background: transparent;
-      border-top: 1px solid var(--border);
-      padding-top: 18px;
+      padding: 0;
+      border: none;
     }
 
     .paper-title {
       font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
-      font-size: 1.18rem;
+      font-size: 1.14rem;
       line-height: 1.55;
       color: var(--text);
       margin: 0;
@@ -446,6 +440,7 @@
       .layout {
         grid-template-columns: 1fr;
         gap: 28px;
+        padding-left: 28px;
       }
 
       .sidebar {
@@ -482,19 +477,19 @@
       }
 
       .page-title {
-        font-size: 2.35rem;
+        font-size: 2.25rem;
       }
 
       .section-heading {
-        font-size: 1.4rem;
+        font-size: 1.32rem;
       }
 
       .paper-title {
-        font-size: 1.08rem;
+        font-size: 1.05rem;
       }
 
       .sidebar-name {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
       }
 
       .footer-content {
@@ -533,10 +528,6 @@
 
   <main class="layout">
     <aside class="sidebar">
-      <div class="profile-photo">
-        <img src="XZ_profile.jpg" alt="Xiangzhi Zhao">
-      </div>
-
       <div class="sidebar-name">Xiangzhi Zhao</div>
 
       <div class="sidebar-pronunciation">
@@ -595,6 +586,8 @@
 
       <section class="teaching-block">
         <h2 class="section-heading">Teaching Experience</h2>
+        <div class="section-rule"></div>
+
         <div class="paper-list">
           <article class="paper-card">
             <div class="paper-title">Teaching Assistant, EB251 Fund of Economics for Business II</div>
@@ -608,6 +601,8 @@
 
       <section class="teaching-block">
         <h2 class="section-heading">Teaching Philosophy</h2>
+        <div class="section-rule"></div>
+
         <article class="paper-card">
           <div class="philosophy-preview" id="philosophy-text">
             <div class="philosophy-text">
