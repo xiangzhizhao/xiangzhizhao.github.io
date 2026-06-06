@@ -313,7 +313,7 @@
       height: 4px;
       background: var(--accent);
       border-radius: 999px;
-      margin: 12px 0 28px;
+      margin: 12px 0 24px;
     }
 
     .notes-intro {
@@ -329,6 +329,13 @@
       margin-bottom: 38px;
     }
 
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
     .section-heading {
       font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 1.48rem;
@@ -336,6 +343,34 @@
       margin: 0;
       color: var(--text);
       font-weight: 500;
+    }
+
+    .section-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.18s ease, transform 0.18s ease;
+    }
+
+    .section-more::after {
+      content: "→";
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform 0.18s ease;
+    }
+
+    .section-more:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .section-more:hover::after {
+      transform: translateX(2px);
     }
 
     .section-rule {
@@ -482,6 +517,11 @@
         grid-template-columns: 1fr;
         gap: 4px;
       }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     @media (max-width: 800px) {
@@ -612,56 +652,30 @@
         These pages sit outside my academic work, but they reflect the same curiosity about people, places, and everyday life.
       </p>
 
-      <section class="notes-section" aria-labelledby="film-heading">
-        <h2 class="section-heading" id="film-heading">Film</h2>
-        <div class="section-rule"></div>
-
-        <ul class="notes-list">
-          <li class="notes-item">
-            <div class="notes-date">Jan 15, 2026</div>
-            <div>
-              <a class="notes-link" href="notes/before-sunrise.html">Before Sunrise and the Value of Conversation</a>
-              <div class="notes-link-meta">A short reflection on dialogue, timing, and intimacy in film.</div>
-            </div>
-          </li>
-          <li class="notes-item">
-            <div class="notes-date">Jan 8, 2026</div>
-            <div>
-              <a class="notes-link" href="notes/yi-yi.html">Yi Yi: Time and Memory</a>
-              <div class="notes-link-meta">On stillness, family, and the passing of time.</div>
-            </div>
-          </li>
-          <li class="notes-item">
-            <div class="notes-date">Dec 28, 2025</div>
-            <div>
-              <a class="notes-link" href="notes/ozu.html">The Quiet Pace of Ozu</a>
-              <div class="notes-link-meta">Why restraint can be more powerful than movement.</div>
-            </div>
-          </li>
-        </ul>
-      </section>
-
       <section class="notes-section" aria-labelledby="travel-heading">
-        <h2 class="section-heading" id="travel-heading">Travel &amp; Culture</h2>
+        <div class="section-header">
+          <h2 class="section-heading" id="travel-heading">Travel &amp; Culture</h2>
+          <a class="section-more" href="travel.html">View all</a>
+        </div>
         <div class="section-rule"></div>
 
         <ul class="notes-list">
           <li class="notes-item">
-            <div class="notes-date">Jan 10, 2026</div>
+            <div class="notes-date">Jan, 2026</div>
             <div>
               <a class="notes-link" href="notes/kyoto.html">Walking Through Kyoto</a>
               <div class="notes-link-meta">Temples, streets, and the rhythm of a winter morning.</div>
             </div>
           </li>
           <li class="notes-item">
-            <div class="notes-date">Dec 20, 2025</div>
+            <div class="notes-date">Dec, 2025</div>
             <div>
               <a class="notes-link" href="notes/bloomington.html">A Winter Afternoon in Bloomington</a>
               <div class="notes-link-meta">A small campus walk and a quiet city afternoon.</div>
             </div>
           </li>
           <li class="notes-item">
-            <div class="notes-date">Nov 30, 2025</div>
+            <div class="notes-date">Nov, 2025</div>
             <div>
               <a class="notes-link" href="notes/travel-slowly.html">Learning to Travel Slowly</a>
               <div class="notes-link-meta">On leaving space for attention and observation.</div>
@@ -670,30 +684,65 @@
         </ul>
       </section>
 
-      <section class="notes-section" aria-labelledby="photo-heading">
-        <h2 class="section-heading" id="photo-heading">Photography</h2>
+      <section class="notes-section" aria-labelledby="fashion-heading">
+        <div class="section-header">
+          <h2 class="section-heading" id="fashion-heading">Fashion</h2>
+          <a class="section-more" href="fashion.html">View all</a>
+        </div>
         <div class="section-rule"></div>
 
         <ul class="notes-list">
           <li class="notes-item">
-            <div class="notes-date">Jan 5, 2026</div>
+            <div class="notes-date">Jan, 2026</div>
             <div>
-              <a class="notes-link" href="notes/tokyo-photo.html">Street Photography in Tokyo</a>
-              <div class="notes-link-meta">A few frames from a quiet city walk.</div>
+              <a class="notes-link" href="notes/autumn-layers.html">Autumn Layers</a>
+              <div class="notes-link-meta">A few thoughts on texture, color, and proportion.</div>
             </div>
           </li>
           <li class="notes-item">
-            <div class="notes-date">Dec 12, 2025</div>
+            <div class="notes-date">Dec, 2025</div>
             <div>
-              <a class="notes-link" href="notes/indiana-fog.html">Foggy Mornings in Indiana</a>
-              <div class="notes-link-meta">Soft light and a slower way of seeing campus.</div>
+              <a class="notes-link" href="notes/vintage-style.html">Why I Like Vintage Style</a>
+              <div class="notes-link-meta">Why older pieces often feel more personal and lasting.</div>
             </div>
           </li>
           <li class="notes-item">
-            <div class="notes-date">Nov 18, 2025</div>
+            <div class="notes-date">Nov, 2025</div>
             <div>
-              <a class="notes-link" href="notes/light.html">Notes on Light and Composition</a>
-              <div class="notes-link-meta">A few thoughts on framing, contrast, and patience.</div>
+              <a class="notes-link" href="notes/texture-color.html">Notes on Texture and Color</a>
+              <div class="notes-link-meta">How small visual details change the feel of an outfit.</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="notes-section" aria-labelledby="film-heading">
+        <div class="section-header">
+          <h2 class="section-heading" id="film-heading">Film</h2>
+          <a class="section-more" href="film.html">View all</a>
+        </div>
+        <div class="section-rule"></div>
+
+        <ul class="notes-list">
+          <li class="notes-item">
+            <div class="notes-date">Jan, 2026</div>
+            <div>
+              <a class="notes-link" href="notes/before-sunrise.html">Before Sunrise and the Value of Conversation</a>
+              <div class="notes-link-meta">A short reflection on dialogue, timing, and intimacy in film.</div>
+            </div>
+          </li>
+          <li class="notes-item">
+            <div class="notes-date">Jan, 2026</div>
+            <div>
+              <a class="notes-link" href="notes/yi-yi.html">Yi Yi: Time and Memory</a>
+              <div class="notes-link-meta">On stillness, family, and the passing of time.</div>
+            </div>
+          </li>
+          <li class="notes-item">
+            <div class="notes-date">Dec, 2025</div>
+            <div>
+              <a class="notes-link" href="notes/ozu.html">The Quiet Pace of Ozu</a>
+              <div class="notes-link-meta">Why restraint can be more powerful than movement.</div>
             </div>
           </li>
         </ul>
@@ -757,5 +806,7 @@
       });
     }
   </script>
+</body>
+</html>
 </body>
 </html>
