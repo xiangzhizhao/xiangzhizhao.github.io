@@ -150,7 +150,7 @@
     .layout {
       max-width: 1500px;
       margin: 0 auto;
-      padding: 34px 28px 48px 64px;
+      padding: 34px 28px 48px 56px;
       display: grid;
       grid-template-columns: 280px minmax(0, 1fr);
       gap: 42px;
@@ -166,8 +166,21 @@
       border-right: 1px solid var(--border);
     }
 
+    .profile-photo {
+      max-width: 160px;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 22px;
+      display: block;
+      box-shadow: var(--shadow);
+    }
+
     .sidebar-name {
-      margin: 6px 0 6px;
+      margin: 18px 0 6px;
       font-family: "EB Garamond", serif;
       font-size: 1.62rem;
       font-weight: 600;
@@ -528,6 +541,10 @@
 
   <main class="layout">
     <aside class="sidebar">
+      <div class="profile-photo">
+        <img src="XZ_profile.jpg" alt="Xiangzhi Zhao">
+      </div>
+
       <div class="sidebar-name">Xiangzhi Zhao</div>
 
       <div class="sidebar-pronunciation">
