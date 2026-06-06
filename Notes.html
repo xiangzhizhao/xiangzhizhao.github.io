@@ -401,25 +401,42 @@
       padding-top: 2px;
     }
 
-    .notes-link {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      max-width: 100%;
-      font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
-      font-size: 1.1rem;
-      line-height: 1.45;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      text-decoration: none;
-      transition: opacity 0.18s ease, transform 0.18s ease;
-    }
+   .notes-link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  font-family: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+  position: relative;
+}
 
-    .notes-link:hover {
-      opacity: 0.78;
-      transform: translateX(2px);
-      text-decoration: none;
-    }
+.notes-link::after {
+  content: "↗";
+  opacity: 0;
+  margin-left: 6px;
+  transition: opacity 0.18s ease;
+  font-size: 0.95em;
+}
+
+.notes-link:hover {
+  color: var(--accent);
+  opacity: 1;
+  transform: translateX(2px);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.notes-link:hover::after {
+  opacity: 1;
+}
+
+   
 
     .notes-link-meta {
       color: var(--muted);
